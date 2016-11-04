@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+        <p:dialog id="MediaposcompEditDlg" widgetVar="MediaposcompEditDialog" modal="true" resizable="false"  appendTo="@(body)" header="#{myBundle.EditMediaposcompTitle}" closeOnEscape="true">
+
+            <h:form id="MediaposcompEditForm">
+
+                <h:panelGroup id="display">
+                    <p:panelGrid  columns="2" columnClasses="column" rendered="#{mediaposcompController.selected != null}">
+
+
+                        <h:outputLabel value="#{myBundle.EditMediaposcompLabel_id}" for="id" />
+                        <h:outputText id="id" value="#{mediaposcompController.selected.id}" />
+
+                        <p:outputLabel value="#{myBundle.EditMediaposcompLabel_ano}" for="ano" />
+                        <p:inputText id="ano" value="#{mediaposcompController.selected.ano}" title="#{myBundle.EditMediaposcompTitle_ano}" size="4" maxlength="4"/>
+
+                        <p:outputLabel value="#{myBundle.EditMediaposcompLabel_media}" for="media" />
+                        <p:inputText id="media" value="#{mediaposcompController.selected.media}" title="#{myBundle.EditMediaposcompTitle_media}"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{mediaposcompController.save}" value="#{myBundle.Save}" update="display,:MediaposcompListForm:datalist,:growl" oncomplete="handleSubmit(xhr,status,args,PF('MediaposcompEditDialog'));">
+                        <p:confirm header="#{myBundle.ConfirmationHeader}" message="#{myBundle.ConfirmEditMessage}" icon="ui-icon-alert"/>
+                    </p:commandButton>
+                    <p:commandButton value="#{myBundle.Cancel}" oncomplete="PF('MediaposcompEditDialog').hide()" update="display" process="@this" immediate="true" resetValues="true"/>
+                </h:panelGroup>
+
+            </h:form>
+
+        </p:dialog>
+
+    </ui:composition>
+
+</html>

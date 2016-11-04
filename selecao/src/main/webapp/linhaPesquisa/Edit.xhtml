@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+        <p:dialog id="LinhaPesquisaEditDlg" widgetVar="LinhaPesquisaEditDialog" modal="true" resizable="false"  appendTo="@(body)" header="#{myBundle.EditLinhaPesquisaTitle}" closeOnEscape="true">
+
+            <h:form id="LinhaPesquisaEditForm">
+
+                <h:panelGroup id="display">
+                    <p:panelGrid  columns="2" columnClasses="column" rendered="#{linhaPesquisaController.selected != null}">
+
+
+                        <h:outputLabel value="#{myBundle.EditLinhaPesquisaLabel_id}" for="id" />
+                        <h:outputText id="id" value="#{linhaPesquisaController.selected.id}" />
+
+                        <p:outputLabel value="#{myBundle.EditLinhaPesquisaLabel_sigla}" for="sigla" />
+                        <p:inputText id="sigla" value="#{linhaPesquisaController.selected.sigla}" title="#{myBundle.EditLinhaPesquisaTitle_sigla}" size="10" maxlength="10"/>
+
+                        <p:outputLabel value="#{myBundle.EditLinhaPesquisaLabel_descricao}" for="descricao" />
+                        <p:inputText id="descricao" value="#{linhaPesquisaController.selected.descricao}" title="#{myBundle.EditLinhaPesquisaTitle_descricao}" size="255" maxlength="255"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{linhaPesquisaController.save}" value="#{myBundle.Save}" update="display,:LinhaPesquisaListForm:datalist,:growl" oncomplete="handleSubmit(xhr,status,args,PF('LinhaPesquisaEditDialog'));">
+                        <p:confirm header="#{myBundle.ConfirmationHeader}" message="#{myBundle.ConfirmEditMessage}" icon="ui-icon-alert"/>
+                    </p:commandButton>
+                    <p:commandButton value="#{myBundle.Cancel}" oncomplete="PF('LinhaPesquisaEditDialog').hide()" update="display" process="@this" immediate="true" resetValues="true"/>
+                </h:panelGroup>
+
+            </h:form>
+
+        </p:dialog>
+
+    </ui:composition>
+
+</html>

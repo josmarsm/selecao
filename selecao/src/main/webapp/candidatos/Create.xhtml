@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CandidatosCreateDlg" widgetVar="CandidatosCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{myBundle.CreateCandidatosTitle}" closeOnEscape="true">
+
+            <h:form id="CandidatosCreateForm">
+
+                <h:panelGroup id="display" rendered="#{candidatosController.selected != null}">
+                    <p:tabView id="CandidatosTabView">
+
+                        <p:tab id="CandidatosTab1" title="#{myBundle.TabHeaderPrefix} 1">
+                            <p:panelGrid columns="2" columnClasses="column">
+                                <p:outputLabel value="#{myBundle.CreateCandidatosLabel_inscricao}" for="inscricao" />
+                                <p:inputText id="inscricao" value="#{candidatosController.selected.inscricao}" title="#{myBundle.CreateCandidatosTitle_inscricao}" size="20" maxlength="20"/>
+
+                                <p:outputLabel value="#{myBundle.CreateCandidatosLabel_cpf}" for="cpf" />
+                                <p:inputText id="cpf" value="#{candidatosController.selected.cpf}" title="#{myBundle.CreateCandidatosTitle_cpf}" size="14" maxlength="14"/>
+
+                                <p:outputLabel value="#{myBundle.CreateCandidatosLabel_nome}" for="nome" />
+                                <p:inputText id="nome" value="#{candidatosController.selected.nome}" title="#{myBundle.CreateCandidatosTitle_nome}" size="150" maxlength="150"/>
+
+                                <p:outputLabel value="#{myBundle.CreateCandidatosLabel_documentacao}" for="documentacao" />
+                                <p:inputText id="documentacao" value="#{candidatosController.selected.documentacao}" title="#{myBundle.CreateCandidatosTitle_documentacao}" size="255" maxlength="255"/>
+
+                                <p:outputLabel value="#{myBundle.CreateCandidatosLabel_linha1}" for="linha1" />
+                                <p:inputText id="linha1" value="#{candidatosController.selected.linha1}" title="#{myBundle.CreateCandidatosTitle_linha1}" size="255" maxlength="255"/>
+
+                                <p:outputLabel value="#{myBundle.CreateCandidatosLabel_avaliador}" for="avaliador" />
+                                <p:inputText id="avaliador" value="#{candidatosController.selected.avaliador}" title="#{myBundle.CreateCandidatosTitle_avaliador}" size="30" maxlength="30"/>
+
+                                <p:outputLabel value="#{myBundle.CreateCandidatosLabel_linha2}" for="linha2" />
+                                <p:inputText id="linha2" value="#{candidatosController.selected.linha2}" title="#{myBundle.CreateCandidatosTitle_linha2}" size="255" maxlength="255"/>
+
+                                <p:outputLabel value="#{myBundle.CreateCandidatosLabel_orientador1}" for="orientador1" />
+                                <p:inputText id="orientador1" value="#{candidatosController.selected.orientador1}" title="#{myBundle.CreateCandidatosTitle_orientador1}" size="255" maxlength="255"/>
+
+                                <p:outputLabel value="#{myBundle.CreateCandidatosLabel_orientador2}" for="orientador2" />
+                                <p:inputText id="orientador2" value="#{candidatosController.selected.orientador2}" title="#{myBundle.CreateCandidatosTitle_orientador2}" size="255" maxlength="255"/>
+
+                                <p:outputLabel value="#{myBundle.CreateCandidatosLabel_orientador3}" for="orientador3" />
+                                <p:inputText id="orientador3" value="#{candidatosController.selected.orientador3}" title="#{myBundle.CreateCandidatosTitle_orientador3}" size="255" maxlength="255"/>
+
+                                <p:outputLabel value="#{myBundle.CreateCandidatosLabel_oldOrientador}" for="oldOrientador" />
+                                <p:inputText id="oldOrientador" value="#{candidatosController.selected.oldOrientador}" title="#{myBundle.CreateCandidatosTitle_oldOrientador}" size="255" maxlength="255"/>
+
+                                <p:outputLabel value="#{myBundle.CreateCandidatosLabel_poscomp}" for="poscomp" />
+                                <p:inputText id="poscomp" value="#{candidatosController.selected.poscomp}" title="#{myBundle.CreateCandidatosTitle_poscomp}" size="255" maxlength="255"/>
+
+                                <p:outputLabel value="#{myBundle.CreateCandidatosLabel_anoPoscomp}" for="anoPoscomp" />
+                                <p:inputText id="anoPoscomp" value="#{candidatosController.selected.anoPoscomp}" title="#{myBundle.CreateCandidatosTitle_anoPoscomp}"/>
+
+                                <p:outputLabel value="#{myBundle.CreateCandidatosLabel_notaPoscomp}" for="notaPoscomp" />
+                                <p:inputText id="notaPoscomp" value="#{candidatosController.selected.notaPoscomp}" title="#{myBundle.CreateCandidatosTitle_notaPoscomp}"/>
+
+                                <p:outputLabel value="#{myBundle.CreateCandidatosLabel_bolsa}" for="bolsa" />
+                                <p:inputText id="bolsa" value="#{candidatosController.selected.bolsa}" title="#{myBundle.CreateCandidatosTitle_bolsa}" size="255" maxlength="255"/>
+
+                                <p:outputLabel value="#{myBundle.CreateCandidatosLabel_avaliadorEliminatoria}" for="avaliadorEliminatoria" />
+                                <p:inputText id="avaliadorEliminatoria" value="#{candidatosController.selected.avaliadorEliminatoria}" title="#{myBundle.CreateCandidatosTitle_avaliadorEliminatoria}" size="255" maxlength="255"/>
+
+                                <p:outputLabel value="#{myBundle.CreateCandidatosLabel_notaEliminatoria}" for="notaEliminatoria" />
+                                <p:inputText id="notaEliminatoria" value="#{candidatosController.selected.notaEliminatoria}" title="#{myBundle.CreateCandidatosTitle_notaEliminatoria}"/>
+
+                                <p:outputLabel value="#{myBundle.CreateCandidatosLabel_notaAvaliador}" for="notaAvaliador" />
+                                <p:inputText id="notaAvaliador" value="#{candidatosController.selected.notaAvaliador}" title="#{myBundle.CreateCandidatosTitle_notaAvaliador}"/>
+
+                                <p:outputLabel value="#{myBundle.CreateCandidatosLabel_notaProvaEscrita}" for="notaProvaEscrita" />
+                                <p:inputText id="notaProvaEscrita" value="#{candidatosController.selected.notaProvaEscrita}" title="#{myBundle.CreateCandidatosTitle_notaProvaEscrita}"/>
+
+                                <p:outputLabel value="#{myBundle.CreateCandidatosLabel_notaEntrevista}" for="notaEntrevista" />
+                                <p:inputText id="notaEntrevista" value="#{candidatosController.selected.notaEntrevista}" title="#{myBundle.CreateCandidatosTitle_notaEntrevista}"/>
+
+                            </p:panelGrid>
+                        </p:tab>
+                        <p:tab id="CandidatosTab2" title="#{myBundle.TabHeaderPrefix} 2">
+                            <p:panelGrid columns="2" columnClasses="column">
+                                <p:outputLabel value="#{myBundle.CreateCandidatosLabel_situacao}" for="situacao" />
+                                <p:inputText id="situacao" value="#{candidatosController.selected.situacao}" title="#{myBundle.CreateCandidatosTitle_situacao}" size="2" maxlength="2"/>
+
+                                <p:outputLabel value="#{myBundle.CreateCandidatosLabel_URLLattes}" for="URLLattes" />
+                                <p:inputText id="URLLattes" value="#{candidatosController.selected.URLLattes}" title="#{myBundle.CreateCandidatosTitle_URLLattes}" size="255" maxlength="255"/>
+
+                                <p:outputLabel value="#{myBundle.CreateCandidatosLabel_historico}" for="historico" />
+                                <p:inputText id="historico" value="#{candidatosController.selected.historico}" title="#{myBundle.CreateCandidatosTitle_historico}" size="255" maxlength="255"/>
+
+                                <p:outputLabel value="#{myBundle.CreateCandidatosLabel_orientador}" for="orientador" />
+                                <p:inputText id="orientador" value="#{candidatosController.selected.orientador}" title="#{myBundle.CreateCandidatosTitle_orientador}" size="255" maxlength="255"/>
+
+                                <p:outputLabel value="#{myBundle.CreateCandidatosLabel_coOrientador}" for="coOrientador" />
+                                <p:inputText id="coOrientador" value="#{candidatosController.selected.coOrientador}" title="#{myBundle.CreateCandidatosTitle_coOrientador}" size="255" maxlength="255"/>
+
+                                <p:outputLabel value="#{myBundle.CreateCandidatosLabel_notaBolsas}" for="notaBolsas" />
+                                <p:inputText id="notaBolsas" value="#{candidatosController.selected.notaBolsas}" title="#{myBundle.CreateCandidatosTitle_notaBolsas}"/>
+
+                                <p:outputLabel value="#{myBundle.CreateCandidatosLabel_dia}" for="dia" />
+                                <p:inputText id="dia" value="#{candidatosController.selected.dia}" title="#{myBundle.CreateCandidatosTitle_dia}" size="255" maxlength="255"/>
+
+                                <p:outputLabel value="#{myBundle.CreateCandidatosLabel_local}" for="local" />
+                                <p:inputText id="local" value="#{candidatosController.selected.local}" title="#{myBundle.CreateCandidatosTitle_local}" size="255" maxlength="255"/>
+
+                                <p:outputLabel value="#{myBundle.CreateCandidatosLabel_horario}" for="horario" />
+                                <p:inputText id="horario" value="#{candidatosController.selected.horario}" title="#{myBundle.CreateCandidatosTitle_horario}" size="255" maxlength="255"/>
+                            </p:panelGrid>
+                        </p:tab>
+                    </p:tabView>
+                    <p:commandButton actionListener="#{candidatosController.saveNew}" value="#{myBundle.Save}" update="display,:CandidatosListForm:datalist,:growl" oncomplete="handleSubmit(xhr,status,args,PF('CandidatosCreateDialog'));">
+                        <p:confirm header="#{myBundle.ConfirmationHeader}" message="#{myBundle.ConfirmCreateMessage}" icon="ui-icon-alert"/>
+                    </p:commandButton>
+
+                    <p:commandButton value="#{myBundle.Cancel}" oncomplete="PF('CandidatosCreateDialog').hide()" update="display" process="@this" immediate="true" resetValues="true"/>
+                </h:panelGroup>
+
+            </h:form>
+
+        </p:dialog>
+
+    </ui:composition>
+
+</html>

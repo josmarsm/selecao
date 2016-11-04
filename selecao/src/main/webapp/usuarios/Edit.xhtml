@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+        <p:dialog id="UsuariosEditDlg" widgetVar="UsuariosEditDialog" modal="true" resizable="false"  appendTo="@(body)" header="#{myBundle.EditUsuariosTitle}" closeOnEscape="true">
+
+            <h:form id="UsuariosEditForm">
+
+                <h:panelGroup id="display">
+                    <p:panelGrid  columns="2" columnClasses="column" rendered="#{usuariosController.selected != null}">
+
+
+                        <h:outputLabel value="#{myBundle.EditUsuariosLabel_id}" for="id" />
+                        <h:outputText id="id" value="#{usuariosController.selected.id}" />
+
+                        <p:outputLabel value="#{myBundle.EditUsuariosLabel_nome}" for="nome" />
+                        <p:inputText id="nome" value="#{usuariosController.selected.nome}" title="#{myBundle.EditUsuariosTitle_nome}" required="true" requiredMessage="#{myBundle.EditUsuariosRequiredMessage_nome}" size="50" maxlength="50"/>
+
+                        <p:outputLabel value="#{myBundle.EditUsuariosLabel_usuario}" for="usuario" />
+                        <p:inputText id="usuario" value="#{usuariosController.selected.usuario}" title="#{myBundle.EditUsuariosTitle_usuario}" required="true" requiredMessage="#{myBundle.EditUsuariosRequiredMessage_usuario}" size="25" maxlength="25"/>
+
+                        <p:outputLabel value="#{myBundle.EditUsuariosLabel_senha}" for="senha" />
+                        <p:inputText id="senha" value="#{usuariosController.selected.senha}" title="#{myBundle.EditUsuariosTitle_senha}" required="true" requiredMessage="#{myBundle.EditUsuariosRequiredMessage_senha}" size="40" maxlength="40"/>
+
+                        <p:outputLabel value="#{myBundle.EditUsuariosLabel_email}" for="email" />
+                        <p:inputText id="email" value="#{usuariosController.selected.email}" title="#{myBundle.EditUsuariosTitle_email}" required="true" requiredMessage="#{myBundle.EditUsuariosRequiredMessage_email}" size="100" maxlength="100"/>
+
+                        <p:outputLabel value="#{myBundle.EditUsuariosLabel_nivel}" for="nivel" />
+                        <p:inputText id="nivel" value="#{usuariosController.selected.nivel}" title="#{myBundle.EditUsuariosTitle_nivel}" required="true" requiredMessage="#{myBundle.EditUsuariosRequiredMessage_nivel}"/>
+
+                        <p:outputLabel value="#{myBundle.EditUsuariosLabel_ativo}" for="ativo" />
+                        <p:selectBooleanCheckbox id="ativo" value="#{usuariosController.selected.ativo}" required="true" requiredMessage="#{myBundle.EditUsuariosRequiredMessage_ativo}"/>
+
+                        <p:outputLabel value="#{myBundle.EditUsuariosLabel_cadastro}" for="cadastro" />
+                        <p:calendar id="cadastro" pattern="MM/dd/yyyy HH:mm:ss" value="#{usuariosController.selected.cadastro}" title="#{myBundle.EditUsuariosTitle_cadastro}" required="true" requiredMessage="#{myBundle.EditUsuariosRequiredMessage_cadastro}" showOn="button"/>
+
+                        <p:outputLabel value="#{myBundle.EditUsuariosLabel_postar}" for="postar" />
+                        <p:inputText id="postar" value="#{usuariosController.selected.postar}" title="#{myBundle.EditUsuariosTitle_postar}" size="6" maxlength="6"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{usuariosController.save}" value="#{myBundle.Save}" update="display,:UsuariosListForm:datalist,:growl" oncomplete="handleSubmit(xhr,status,args,PF('UsuariosEditDialog'));">
+                        <p:confirm header="#{myBundle.ConfirmationHeader}" message="#{myBundle.ConfirmEditMessage}" icon="ui-icon-alert"/>
+                    </p:commandButton>
+                    <p:commandButton value="#{myBundle.Cancel}" oncomplete="PF('UsuariosEditDialog').hide()" update="display" process="@this" immediate="true" resetValues="true"/>
+                </h:panelGroup>
+
+            </h:form>
+
+        </p:dialog>
+
+    </ui:composition>
+
+</html>

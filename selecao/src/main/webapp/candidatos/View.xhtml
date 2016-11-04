@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CandidatosViewDlg" widgetVar="CandidatosViewDialog" modal="true" resizable="false"  appendTo="@(body)" header="#{myBundle.ViewCandidatosTitle}" closeOnEscape="true">
+
+            <h:form id="CandidatosViewForm">
+
+                <h:panelGroup id="display">
+                    <p:tabView id="CandidatosTabView">
+
+                        <p:tab id="CandidatosTab1" title="#{myBundle.TabHeaderPrefix} 1">
+                            <p:panelGrid columns="2" columnClasses="column" rendered="#{candidatosController.selected != null}">
+                                <h:outputText value="#{myBundle.ViewCandidatosLabel_id}"/>
+                                <h:outputText value="#{candidatosController.selected.id}" title="#{myBundle.ViewCandidatosTitle_id}"/>
+
+                                <h:outputText value="#{myBundle.ViewCandidatosLabel_inscricao}"/>
+                                <h:outputText value="#{candidatosController.selected.inscricao}" title="#{myBundle.ViewCandidatosTitle_inscricao}"/>
+
+                                <h:outputText value="#{myBundle.ViewCandidatosLabel_cpf}"/>
+                                <h:outputText value="#{candidatosController.selected.cpf}" title="#{myBundle.ViewCandidatosTitle_cpf}"/>
+
+                                <h:outputText value="#{myBundle.ViewCandidatosLabel_nome}"/>
+                                <h:outputText value="#{candidatosController.selected.nome}" title="#{myBundle.ViewCandidatosTitle_nome}"/>
+
+                                <h:outputText value="#{myBundle.ViewCandidatosLabel_documentacao}"/>
+                                <h:outputText value="#{candidatosController.selected.documentacao}" title="#{myBundle.ViewCandidatosTitle_documentacao}"/>
+
+                                <h:outputText value="#{myBundle.ViewCandidatosLabel_linha1}"/>
+                                <h:outputText value="#{candidatosController.selected.linha1}" title="#{myBundle.ViewCandidatosTitle_linha1}"/>
+
+                                <h:outputText value="#{myBundle.ViewCandidatosLabel_avaliador}"/>
+                                <h:outputText value="#{candidatosController.selected.avaliador}" title="#{myBundle.ViewCandidatosTitle_avaliador}"/>
+
+                                <h:outputText value="#{myBundle.ViewCandidatosLabel_linha2}"/>
+                                <h:outputText value="#{candidatosController.selected.linha2}" title="#{myBundle.ViewCandidatosTitle_linha2}"/>
+
+                                <h:outputText value="#{myBundle.ViewCandidatosLabel_orientador1}"/>
+                                <h:outputText value="#{candidatosController.selected.orientador1}" title="#{myBundle.ViewCandidatosTitle_orientador1}"/>
+
+                                <h:outputText value="#{myBundle.ViewCandidatosLabel_orientador2}"/>
+                                <h:outputText value="#{candidatosController.selected.orientador2}" title="#{myBundle.ViewCandidatosTitle_orientador2}"/>
+
+                                <h:outputText value="#{myBundle.ViewCandidatosLabel_orientador3}"/>
+                                <h:outputText value="#{candidatosController.selected.orientador3}" title="#{myBundle.ViewCandidatosTitle_orientador3}"/>
+
+                                <h:outputText value="#{myBundle.ViewCandidatosLabel_oldOrientador}"/>
+                                <h:outputText value="#{candidatosController.selected.oldOrientador}" title="#{myBundle.ViewCandidatosTitle_oldOrientador}"/>
+
+                                <h:outputText value="#{myBundle.ViewCandidatosLabel_poscomp}"/>
+                                <h:outputText value="#{candidatosController.selected.poscomp}" title="#{myBundle.ViewCandidatosTitle_poscomp}"/>
+
+                                <h:outputText value="#{myBundle.ViewCandidatosLabel_anoPoscomp}"/>
+                                <h:outputText value="#{candidatosController.selected.anoPoscomp}" title="#{myBundle.ViewCandidatosTitle_anoPoscomp}"/>
+
+                                <h:outputText value="#{myBundle.ViewCandidatosLabel_notaPoscomp}"/>
+                                <h:outputText value="#{candidatosController.selected.notaPoscomp}" title="#{myBundle.ViewCandidatosTitle_notaPoscomp}"/>
+
+                                <h:outputText value="#{myBundle.ViewCandidatosLabel_bolsa}"/>
+                                <h:outputText value="#{candidatosController.selected.bolsa}" title="#{myBundle.ViewCandidatosTitle_bolsa}"/>
+
+                                <h:outputText value="#{myBundle.ViewCandidatosLabel_avaliadorEliminatoria}"/>
+                                <h:outputText value="#{candidatosController.selected.avaliadorEliminatoria}" title="#{myBundle.ViewCandidatosTitle_avaliadorEliminatoria}"/>
+
+                                <h:outputText value="#{myBundle.ViewCandidatosLabel_notaEliminatoria}"/>
+                                <h:outputText value="#{candidatosController.selected.notaEliminatoria}" title="#{myBundle.ViewCandidatosTitle_notaEliminatoria}"/>
+
+                                <h:outputText value="#{myBundle.ViewCandidatosLabel_notaAvaliador}"/>
+                                <h:outputText value="#{candidatosController.selected.notaAvaliador}" title="#{myBundle.ViewCandidatosTitle_notaAvaliador}"/>
+
+                                <h:outputText value="#{myBundle.ViewCandidatosLabel_notaProvaEscrita}"/>
+                                <h:outputText value="#{candidatosController.selected.notaProvaEscrita}" title="#{myBundle.ViewCandidatosTitle_notaProvaEscrita}"/>
+
+                            </p:panelGrid>
+                        </p:tab>
+                        <p:tab id="CandidatosTab2" title="#{myBundle.TabHeaderPrefix} 2">
+                            <p:panelGrid columns="2" columnClasses="column" rendered="#{candidatosController.selected != null}">
+                                <h:outputText value="#{myBundle.ViewCandidatosLabel_notaEntrevista}"/>
+                                <h:outputText value="#{candidatosController.selected.notaEntrevista}" title="#{myBundle.ViewCandidatosTitle_notaEntrevista}"/>
+
+                                <h:outputText value="#{myBundle.ViewCandidatosLabel_situacao}"/>
+                                <h:outputText value="#{candidatosController.selected.situacao}" title="#{myBundle.ViewCandidatosTitle_situacao}"/>
+
+                                <h:outputText value="#{myBundle.ViewCandidatosLabel_URLLattes}"/>
+                                <h:outputText value="#{candidatosController.selected.URLLattes}" title="#{myBundle.ViewCandidatosTitle_URLLattes}"/>
+
+                                <h:outputText value="#{myBundle.ViewCandidatosLabel_historico}"/>
+                                <h:outputText value="#{candidatosController.selected.historico}" title="#{myBundle.ViewCandidatosTitle_historico}"/>
+
+                                <h:outputText value="#{myBundle.ViewCandidatosLabel_orientador}"/>
+                                <h:outputText value="#{candidatosController.selected.orientador}" title="#{myBundle.ViewCandidatosTitle_orientador}"/>
+
+                                <h:outputText value="#{myBundle.ViewCandidatosLabel_coOrientador}"/>
+                                <h:outputText value="#{candidatosController.selected.coOrientador}" title="#{myBundle.ViewCandidatosTitle_coOrientador}"/>
+
+                                <h:outputText value="#{myBundle.ViewCandidatosLabel_notaBolsas}"/>
+                                <h:outputText value="#{candidatosController.selected.notaBolsas}" title="#{myBundle.ViewCandidatosTitle_notaBolsas}"/>
+
+                                <h:outputText value="#{myBundle.ViewCandidatosLabel_dia}"/>
+                                <h:outputText value="#{candidatosController.selected.dia}" title="#{myBundle.ViewCandidatosTitle_dia}"/>
+
+                                <h:outputText value="#{myBundle.ViewCandidatosLabel_local}"/>
+                                <h:outputText value="#{candidatosController.selected.local}" title="#{myBundle.ViewCandidatosTitle_local}"/>
+
+                                <h:outputText value="#{myBundle.ViewCandidatosLabel_horario}"/>
+                                <h:outputText value="#{candidatosController.selected.horario}" title="#{myBundle.ViewCandidatosTitle_horario}"/>
+                            </p:panelGrid>
+                        </p:tab>
+                    </p:tabView>
+                    <p:commandButton value="#{myBundle.Close}" onclick="PF('CandidatosViewDialog').hide()"/>
+                </h:panelGroup>
+
+            </h:form>
+
+        </p:dialog>
+
+    </ui:composition>
+
+</html>

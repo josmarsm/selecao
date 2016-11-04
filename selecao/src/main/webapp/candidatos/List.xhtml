@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui">
+
+    <h:form id="CandidatosListForm">
+
+        <p:panel header="#{myBundle.ListCandidatosTitle}">
+            <p:dataTable id="datalist"
+                         value="#{candidatosController.items}"
+                         lazy="false"
+                         rowKey="#{item.id}"
+                         var="item"
+                         paginator="true"
+                         rows="10"
+                         rowsPerPageTemplate="10,20,30,40,50"
+                         selectionMode="single"
+                         selection="#{candidatosController.selected}">
+                <!--
+                         To enable Lazy Loading, please copy/replace the following lines above,
+                         and be sure to replace the word HASH with the # symbol:
+                
+                         value="HASH{candidatosController.lazyItems}"
+                         lazy="true"
+                         rowKey="HASH{item.id}"  <<< Remove this line
+                -->
+
+
+                <p:ajax event="rowSelect"   update="createButton,viewButton,editButton,deleteButton"/>
+                <p:ajax event="rowUnselect" update="createButton,viewButton,editButton,deleteButton"/>
+
+                <p:column sortBy="#{item.id}" filterBy="#{item.id}">
+                    <f:facet name="header">
+                        <h:outputText value="#{myBundle.ListCandidatosTitle_id}"/>
+                    </f:facet>
+                    <h:outputText value="#{item.id}"/>
+                </p:column>
+
+
+                <p:column sortBy="#{item.inscricao}" filterBy="#{item.inscricao}">
+                    <f:facet name="header">
+                        <h:outputText value="#{myBundle.ListCandidatosTitle_inscricao}"/>
+                    </f:facet>
+                    <h:outputText value="#{item.inscricao}"/>
+                </p:column>
+
+
+                <p:column sortBy="#{item.cpf}" filterBy="#{item.cpf}">
+                    <f:facet name="header">
+                        <h:outputText value="#{myBundle.ListCandidatosTitle_cpf}"/>
+                    </f:facet>
+                    <h:outputText value="#{item.cpf}"/>
+                </p:column>
+
+
+                <p:column sortBy="#{item.nome}" filterBy="#{item.nome}">
+                    <f:facet name="header">
+                        <h:outputText value="#{myBundle.ListCandidatosTitle_nome}"/>
+                    </f:facet>
+                    <h:outputText value="#{item.nome}"/>
+                </p:column>
+
+
+                <p:column sortBy="#{item.documentacao}" filterBy="#{item.documentacao}">
+                    <f:facet name="header">
+                        <h:outputText value="#{myBundle.ListCandidatosTitle_documentacao}"/>
+                    </f:facet>
+                    <h:outputText value="#{item.documentacao}"/>
+                </p:column>
+
+
+                <p:column sortBy="#{item.linha1}" filterBy="#{item.linha1}">
+                    <f:facet name="header">
+                        <h:outputText value="#{myBundle.ListCandidatosTitle_linha1}"/>
+                    </f:facet>
+                    <h:outputText value="#{item.linha1}"/>
+                </p:column>
+
+                <!--
+                                    <p:column sortBy="#{item.avaliador}" filterBy="#{item.avaliador}">
+                                        <f:facet name="header">
+                                            <h:outputText value="#{myBundle.ListCandidatosTitle_avaliador}"/>
+                                        </f:facet>
+                                        <h:outputText value="#{item.avaliador}"/>
+                                    </p:column>
+                -->
+                <!--
+                                    <p:column sortBy="#{item.linha2}" filterBy="#{item.linha2}">
+                                        <f:facet name="header">
+                                            <h:outputText value="#{myBundle.ListCandidatosTitle_linha2}"/>
+                                        </f:facet>
+                                        <h:outputText value="#{item.linha2}"/>
+                                    </p:column>
+                -->
+                <!--
+                                    <p:column sortBy="#{item.orientador1}" filterBy="#{item.orientador1}">
+                                        <f:facet name="header">
+                                            <h:outputText value="#{myBundle.ListCandidatosTitle_orientador1}"/>
+                                        </f:facet>
+                                        <h:outputText value="#{item.orientador1}"/>
+                                    </p:column>
+                -->
+                <!--
+                                    <p:column sortBy="#{item.orientador2}" filterBy="#{item.orientador2}">
+                                        <f:facet name="header">
+                                            <h:outputText value="#{myBundle.ListCandidatosTitle_orientador2}"/>
+                                        </f:facet>
+                                        <h:outputText value="#{item.orientador2}"/>
+                                    </p:column>
+                -->
+                <!--
+                                    <p:column sortBy="#{item.orientador3}" filterBy="#{item.orientador3}">
+                                        <f:facet name="header">
+                                            <h:outputText value="#{myBundle.ListCandidatosTitle_orientador3}"/>
+                                        </f:facet>
+                                        <h:outputText value="#{item.orientador3}"/>
+                                    </p:column>
+                -->
+                <!--
+                                    <p:column sortBy="#{item.oldOrientador}" filterBy="#{item.oldOrientador}">
+                                        <f:facet name="header">
+                                            <h:outputText value="#{myBundle.ListCandidatosTitle_oldOrientador}"/>
+                                        </f:facet>
+                                        <h:outputText value="#{item.oldOrientador}"/>
+                                    </p:column>
+                -->
+                <!--
+                                    <p:column sortBy="#{item.poscomp}" filterBy="#{item.poscomp}">
+                                        <f:facet name="header">
+                                            <h:outputText value="#{myBundle.ListCandidatosTitle_poscomp}"/>
+                                        </f:facet>
+                                        <h:outputText value="#{item.poscomp}"/>
+                                    </p:column>
+                -->
+                <!--
+                                    <p:column sortBy="#{item.anoPoscomp}" filterBy="#{item.anoPoscomp}">
+                                        <f:facet name="header">
+                                            <h:outputText value="#{myBundle.ListCandidatosTitle_anoPoscomp}"/>
+                                        </f:facet>
+                                        <h:outputText value="#{item.anoPoscomp}"/>
+                                    </p:column>
+                -->
+                <!--
+                                    <p:column sortBy="#{item.notaPoscomp}" filterBy="#{item.notaPoscomp}">
+                                        <f:facet name="header">
+                                            <h:outputText value="#{myBundle.ListCandidatosTitle_notaPoscomp}"/>
+                                        </f:facet>
+                                        <h:outputText value="#{item.notaPoscomp}"/>
+                                    </p:column>
+                -->
+                <!--
+                                    <p:column sortBy="#{item.bolsa}" filterBy="#{item.bolsa}">
+                                        <f:facet name="header">
+                                            <h:outputText value="#{myBundle.ListCandidatosTitle_bolsa}"/>
+                                        </f:facet>
+                                        <h:outputText value="#{item.bolsa}"/>
+                                    </p:column>
+                -->
+                <!--
+                                    <p:column sortBy="#{item.avaliadorEliminatoria}" filterBy="#{item.avaliadorEliminatoria}">
+                                        <f:facet name="header">
+                                            <h:outputText value="#{myBundle.ListCandidatosTitle_avaliadorEliminatoria}"/>
+                                        </f:facet>
+                                        <h:outputText value="#{item.avaliadorEliminatoria}"/>
+                                    </p:column>
+                -->
+                <!--
+                                    <p:column sortBy="#{item.notaEliminatoria}" filterBy="#{item.notaEliminatoria}">
+                                        <f:facet name="header">
+                                            <h:outputText value="#{myBundle.ListCandidatosTitle_notaEliminatoria}"/>
+                                        </f:facet>
+                                        <h:outputText value="#{item.notaEliminatoria}"/>
+                                    </p:column>
+                -->
+                <!--
+                                    <p:column sortBy="#{item.notaAvaliador}" filterBy="#{item.notaAvaliador}">
+                                        <f:facet name="header">
+                                            <h:outputText value="#{myBundle.ListCandidatosTitle_notaAvaliador}"/>
+                                        </f:facet>
+                                        <h:outputText value="#{item.notaAvaliador}"/>
+                                    </p:column>
+                -->
+                <!--
+                                    <p:column sortBy="#{item.notaProvaEscrita}" filterBy="#{item.notaProvaEscrita}">
+                                        <f:facet name="header">
+                                            <h:outputText value="#{myBundle.ListCandidatosTitle_notaProvaEscrita}"/>
+                                        </f:facet>
+                                        <h:outputText value="#{item.notaProvaEscrita}"/>
+                                    </p:column>
+                -->
+                <!--
+                                    <p:column sortBy="#{item.notaEntrevista}" filterBy="#{item.notaEntrevista}">
+                                        <f:facet name="header">
+                                            <h:outputText value="#{myBundle.ListCandidatosTitle_notaEntrevista}"/>
+                                        </f:facet>
+                                        <h:outputText value="#{item.notaEntrevista}"/>
+                                    </p:column>
+                -->
+                <!--
+                                    <p:column sortBy="#{item.situacao}" filterBy="#{item.situacao}">
+                                        <f:facet name="header">
+                                            <h:outputText value="#{myBundle.ListCandidatosTitle_situacao}"/>
+                                        </f:facet>
+                                        <h:outputText value="#{item.situacao}"/>
+                                    </p:column>
+                -->
+                <!--
+                                    <p:column sortBy="#{item.URLLattes}" filterBy="#{item.URLLattes}">
+                                        <f:facet name="header">
+                                            <h:outputText value="#{myBundle.ListCandidatosTitle_URLLattes}"/>
+                                        </f:facet>
+                                        <h:outputText value="#{item.URLLattes}"/>
+                                    </p:column>
+                -->
+                <!--
+                                    <p:column sortBy="#{item.historico}" filterBy="#{item.historico}">
+                                        <f:facet name="header">
+                                            <h:outputText value="#{myBundle.ListCandidatosTitle_historico}"/>
+                                        </f:facet>
+                                        <h:outputText value="#{item.historico}"/>
+                                    </p:column>
+                -->
+                <!--
+                                    <p:column sortBy="#{item.orientador}" filterBy="#{item.orientador}">
+                                        <f:facet name="header">
+                                            <h:outputText value="#{myBundle.ListCandidatosTitle_orientador}"/>
+                                        </f:facet>
+                                        <h:outputText value="#{item.orientador}"/>
+                                    </p:column>
+                -->
+                <!--
+                                    <p:column sortBy="#{item.coOrientador}" filterBy="#{item.coOrientador}">
+                                        <f:facet name="header">
+                                            <h:outputText value="#{myBundle.ListCandidatosTitle_coOrientador}"/>
+                                        </f:facet>
+                                        <h:outputText value="#{item.coOrientador}"/>
+                                    </p:column>
+                -->
+                <!--
+                                    <p:column sortBy="#{item.notaBolsas}" filterBy="#{item.notaBolsas}">
+                                        <f:facet name="header">
+                                            <h:outputText value="#{myBundle.ListCandidatosTitle_notaBolsas}"/>
+                                        </f:facet>
+                                        <h:outputText value="#{item.notaBolsas}"/>
+                                    </p:column>
+                -->
+                <!--
+                                    <p:column sortBy="#{item.dia}" filterBy="#{item.dia}">
+                                        <f:facet name="header">
+                                            <h:outputText value="#{myBundle.ListCandidatosTitle_dia}"/>
+                                        </f:facet>
+                                        <h:outputText value="#{item.dia}"/>
+                                    </p:column>
+                -->
+                <!--
+                                    <p:column sortBy="#{item.local}" filterBy="#{item.local}">
+                                        <f:facet name="header">
+                                            <h:outputText value="#{myBundle.ListCandidatosTitle_local}"/>
+                                        </f:facet>
+                                        <h:outputText value="#{item.local}"/>
+                                    </p:column>
+                -->
+                <!--
+                                    <p:column sortBy="#{item.horario}" filterBy="#{item.horario}">
+                                        <f:facet name="header">
+                                            <h:outputText value="#{myBundle.ListCandidatosTitle_horario}"/>
+                                        </f:facet>
+                                        <h:outputText value="#{item.horario}"/>
+                                    </p:column>
+                -->
+                <f:facet name="footer">
+                    <div class="footer-section">
+                        <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{myBundle.Create}" actionListener="#{candidatosController.prepareCreate}" update=":CandidatosCreateForm" oncomplete="PF('CandidatosCreateDialog').show()"/>
+                        <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{myBundle.View}" update=":CandidatosViewForm" oncomplete="PF('CandidatosViewDialog').show()" disabled="#{empty candidatosController.selected}"/>
+                        <p:commandButton id="editButton"   icon="ui-icon-pencil" value="#{myBundle.Edit}" update=":CandidatosEditForm" oncomplete="PF('CandidatosEditDialog').show()" disabled="#{empty candidatosController.selected}"/>
+                        <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{myBundle.Delete}" actionListener="#{candidatosController.delete}" update=":growl,datalist" disabled="#{empty candidatosController.selected}">
+                            <p:confirm header="#{myBundle.ConfirmationHeader}" message="#{myBundle.ConfirmDeleteMessage}" icon="ui-icon-alert"/>
+                        </p:commandButton>
+                    </div>
+                </f:facet>
+
+            </p:dataTable>
+
+        </p:panel>
+        <ui:include src="/confirmation.xhtml"/>
+    </h:form>
+
+</ui:composition>

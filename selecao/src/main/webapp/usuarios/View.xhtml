@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="UsuariosViewDlg" widgetVar="UsuariosViewDialog" modal="true" resizable="false"  appendTo="@(body)" header="#{myBundle.ViewUsuariosTitle}" closeOnEscape="true">
+
+            <h:form id="UsuariosViewForm">
+
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" columnClasses="column" rendered="#{usuariosController.selected != null}">
+
+                        <h:outputText value="#{myBundle.ViewUsuariosLabel_id}"/>
+                        <h:outputText value="#{usuariosController.selected.id}" title="#{myBundle.ViewUsuariosTitle_id}"/>
+
+                        <h:outputText value="#{myBundle.ViewUsuariosLabel_nome}"/>
+                        <h:outputText value="#{usuariosController.selected.nome}" title="#{myBundle.ViewUsuariosTitle_nome}"/>
+
+                        <h:outputText value="#{myBundle.ViewUsuariosLabel_usuario}"/>
+                        <h:outputText value="#{usuariosController.selected.usuario}" title="#{myBundle.ViewUsuariosTitle_usuario}"/>
+
+                        <h:outputText value="#{myBundle.ViewUsuariosLabel_senha}"/>
+                        <h:outputText value="#{usuariosController.selected.senha}" title="#{myBundle.ViewUsuariosTitle_senha}"/>
+
+                        <h:outputText value="#{myBundle.ViewUsuariosLabel_email}"/>
+                        <h:outputText value="#{usuariosController.selected.email}" title="#{myBundle.ViewUsuariosTitle_email}"/>
+
+                        <h:outputText value="#{myBundle.ViewUsuariosLabel_nivel}"/>
+                        <h:outputText value="#{usuariosController.selected.nivel}" title="#{myBundle.ViewUsuariosTitle_nivel}"/>
+
+                        <h:outputText value="#{myBundle.ViewUsuariosLabel_ativo}"/>
+                        <h:selectBooleanCheckbox id="ativo" value="#{usuariosController.selected.ativo}" title="#{myBundle.EditUsuariosTitle_ativo}" required="true" requiredMessage="#{myBundle.EditUsuariosRequiredMessage_ativo}" disabled="true"/>
+
+                        <h:outputText value="#{myBundle.ViewUsuariosLabel_cadastro}"/>
+                        <h:outputText value="#{usuariosController.selected.cadastro}" title="#{myBundle.ViewUsuariosTitle_cadastro}">
+                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                        </h:outputText>
+
+                        <h:outputText value="#{myBundle.ViewUsuariosLabel_postar}"/>
+                        <h:outputText value="#{usuariosController.selected.postar}" title="#{myBundle.ViewUsuariosTitle_postar}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{myBundle.Close}" onclick="PF('UsuariosViewDialog').hide()"/>
+                </h:panelGroup>
+
+            </h:form>
+
+        </p:dialog>
+
+    </ui:composition>
+
+</html>

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui">
+
+    <h:form id="UsuariosListForm">
+
+        <p:panel header="#{myBundle.ListUsuariosTitle}">
+            <p:dataTable id="datalist"
+                         value="#{usuariosController.items}"
+                         lazy="false"
+                         rowKey="#{item.id}"
+                         var="item"
+                         paginator="true"
+                         rows="10"
+                         rowsPerPageTemplate="10,20,30,40,50"
+                         selectionMode="single"
+                         selection="#{usuariosController.selected}">
+                <!--
+                         To enable Lazy Loading, please copy/replace the following lines above,
+                         and be sure to replace the word HASH with the # symbol:
+                
+                         value="HASH{usuariosController.lazyItems}"
+                         lazy="true"
+                         rowKey="HASH{item.id}"  <<< Remove this line
+                -->
+
+
+                <p:ajax event="rowSelect"   update="createButton,viewButton,editButton,deleteButton"/>
+                <p:ajax event="rowUnselect" update="createButton,viewButton,editButton,deleteButton"/>
+
+                <p:column sortBy="#{item.id}" filterBy="#{item.id}">
+                    <f:facet name="header">
+                        <h:outputText value="#{myBundle.ListUsuariosTitle_id}"/>
+                    </f:facet>
+                    <h:outputText value="#{item.id}"/>
+                </p:column>
+
+
+                <p:column sortBy="#{item.nome}" filterBy="#{item.nome}">
+                    <f:facet name="header">
+                        <h:outputText value="#{myBundle.ListUsuariosTitle_nome}"/>
+                    </f:facet>
+                    <h:outputText value="#{item.nome}"/>
+                </p:column>
+
+
+                <p:column sortBy="#{item.usuario}" filterBy="#{item.usuario}">
+                    <f:facet name="header">
+                        <h:outputText value="#{myBundle.ListUsuariosTitle_usuario}"/>
+                    </f:facet>
+                    <h:outputText value="#{item.usuario}"/>
+                </p:column>
+
+
+                <p:column sortBy="#{item.senha}" filterBy="#{item.senha}">
+                    <f:facet name="header">
+                        <h:outputText value="#{myBundle.ListUsuariosTitle_senha}"/>
+                    </f:facet>
+                    <h:outputText value="#{item.senha}"/>
+                </p:column>
+
+
+                <p:column sortBy="#{item.email}" filterBy="#{item.email}">
+                    <f:facet name="header">
+                        <h:outputText value="#{myBundle.ListUsuariosTitle_email}"/>
+                    </f:facet>
+                    <h:outputText value="#{item.email}"/>
+                </p:column>
+
+
+                <p:column sortBy="#{item.nivel}" filterBy="#{item.nivel}">
+                    <f:facet name="header">
+                        <h:outputText value="#{myBundle.ListUsuariosTitle_nivel}"/>
+                    </f:facet>
+                    <h:outputText value="#{item.nivel}"/>
+                </p:column>
+
+                <!--
+                                    <p:column sortBy="#{item.ativo}" filterBy="#{item.ativo}">
+                                        <f:facet name="header">
+                                            <h:outputText value="#{myBundle.ListUsuariosTitle_ativo}"/>
+                                        </f:facet>
+                                        <h:selectBooleanCheckbox id="ativo" value="#{item.ativo}" title="#{myBundle.EditUsuariosTitle_ativo}" required="true" requiredMessage="#{myBundle.EditUsuariosRequiredMessage_ativo}" disabled="true"/>
+                                    </p:column>
+                -->
+                <!--
+                                    <p:column sortBy="#{item.cadastro}" filterBy="#{item.cadastro}">
+                                        <f:facet name="header">
+                                            <h:outputText value="#{myBundle.ListUsuariosTitle_cadastro}"/>
+                                        </f:facet>
+                                        <h:outputText value="#{item.cadastro}">
+                                            <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                                        </h:outputText>
+                                    </p:column>
+                -->
+                <!--
+                                    <p:column sortBy="#{item.postar}" filterBy="#{item.postar}">
+                                        <f:facet name="header">
+                                            <h:outputText value="#{myBundle.ListUsuariosTitle_postar}"/>
+                                        </f:facet>
+                                        <h:outputText value="#{item.postar}"/>
+                                    </p:column>
+                -->
+                <f:facet name="footer">
+                    <div class="footer-section">
+                        <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{myBundle.Create}" actionListener="#{usuariosController.prepareCreate}" update=":UsuariosCreateForm" oncomplete="PF('UsuariosCreateDialog').show()"/>
+                        <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{myBundle.View}" update=":UsuariosViewForm" oncomplete="PF('UsuariosViewDialog').show()" disabled="#{empty usuariosController.selected}"/>
+                        <p:commandButton id="editButton"   icon="ui-icon-pencil" value="#{myBundle.Edit}" update=":UsuariosEditForm" oncomplete="PF('UsuariosEditDialog').show()" disabled="#{empty usuariosController.selected}"/>
+                        <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{myBundle.Delete}" actionListener="#{usuariosController.delete}" update=":growl,datalist" disabled="#{empty usuariosController.selected}">
+                            <p:confirm header="#{myBundle.ConfirmationHeader}" message="#{myBundle.ConfirmDeleteMessage}" icon="ui-icon-alert"/>
+                        </p:commandButton>
+                    </div>
+                </f:facet>
+
+            </p:dataTable>
+
+        </p:panel>
+        <ui:include src="/confirmation.xhtml"/>
+    </h:form>
+
+</ui:composition>

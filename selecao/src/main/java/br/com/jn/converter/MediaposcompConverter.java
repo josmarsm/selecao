@@ -1,8 +1,8 @@
 package br.com.jn.converter;
 
 import br.com.jn.model.Mediaposcomp;
-import br.com.jn.sessionbeans.MediaposcompFacade;
-import br.com.jn.backingbeans.util.JsfUtil;
+import br.com.jn.sessionbean.MediaposcompFacade;
+import br.com.jn.backingbean.util.JsfUtil;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.faces.convert.FacesConverter;

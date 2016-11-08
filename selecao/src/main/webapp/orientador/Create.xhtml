@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="OrientadorCreateDlg" widgetVar="OrientadorCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{myBundle.CreateOrientadorTitle}" closeOnEscape="true">
+
+            <h:form id="OrientadorCreateForm">
+
+                <h:panelGroup id="display" rendered="#{orientadorController.selected != null}">
+                    <p:panelGrid columns="2" columnClasses="column">
+
+                        <p:outputLabel value="#{myBundle.CreateOrientadorLabel_orientador}" for="orientador" />
+                        <p:inputText id="orientador" value="#{orientadorController.selected.orientador}" title="#{myBundle.CreateOrientadorTitle_orientador}" size="50" maxlength="50"/>
+
+                        <p:outputLabel value="#{myBundle.CreateOrientadorLabel_linha}" for="linha" />
+                        <p:selectOneMenu id="linha" value="#{orientadorController.selected.linha}"  converter="linhaConverter">
+                            <f:selectItem itemLabel="#{myBundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{linhaController.items}"
+                                           var="linhaItem"
+                                           itemValue="#{linhaItem}"
+                                           itemLabel="#{linhaItem.descricao.toString()}"
+                                           />
+
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{orientadorController.saveNew}" value="#{myBundle.Save}" update="display,:OrientadorListForm:datalist,:growl" oncomplete="handleSubmit(xhr,status,args,PF('OrientadorCreateDialog'));">
+                        <p:confirm header="#{myBundle.ConfirmationHeader}" message="#{myBundle.ConfirmCreateMessage}" icon="ui-icon-alert"/>
+                    </p:commandButton>
+
+                    <p:commandButton value="#{myBundle.Cancel}" oncomplete="PF('OrientadorCreateDialog').hide()" update="display" process="@this" immediate="true" resetValues="true"/>
+                </h:panelGroup>
+
+            </h:form>
+
+        </p:dialog>
+
+    </ui:composition>
+
+</html>

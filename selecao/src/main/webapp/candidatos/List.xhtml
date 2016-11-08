@@ -31,6 +31,7 @@
 
                 <p:ajax event="rowSelect"   update="createButton,viewButton,editButton,deleteButton"/>
                 <p:ajax event="rowUnselect" update="createButton,viewButton,editButton,deleteButton"/>
+                <!--
 
                 <p:column sortBy="#{item.id}" filterBy="#{item.id}">
                     <f:facet name="header">
@@ -55,7 +56,7 @@
                     <h:outputText value="#{item.cpf}"/>
                 </p:column>
 
-
+                -->
                 <p:column sortBy="#{item.nome}" filterBy="#{item.nome}">
                     <f:facet name="header">
                         <h:outputText value="#{myBundle.ListCandidatosTitle_nome}"/>
@@ -63,6 +64,7 @@
                     <h:outputText value="#{item.nome}"/>
                 </p:column>
 
+                <!--
 
                 <p:column sortBy="#{item.documentacao}" filterBy="#{item.documentacao}">
                     <f:facet name="header">
@@ -70,7 +72,7 @@
                     </f:facet>
                     <h:outputText value="#{item.documentacao}"/>
                 </p:column>
-
+                -->
 
                 <p:column sortBy="#{item.linha1}" filterBy="#{item.linha1}">
                     <f:facet name="header">
@@ -79,13 +81,30 @@
                     <h:outputText value="#{item.linha1}"/>
                 </p:column>
 
+
+
+                <p:column sortBy="#{item.notaAvaliador}" filterBy="#{item.notaAvaliador}">
+                    <f:facet name="header">
+                        <h:outputText value="#{myBundle.ListCandidatosTitle_notaAvaliador}"/>
+                    </f:facet>
+                    <h:outputText value="#{item.notaAvaliador}"/>
+                </p:column>
+
+
+                <p:column sortBy="#{item.notaEliminatoria}" filterBy="#{item.notaEliminatoria}">
+                    <f:facet name="header">
+                        <h:outputText value="#{myBundle.ListCandidatosTitle_notaEliminatoria}"/>
+                    </f:facet>
+                    <h:outputText value="#{item.notaEliminatoria}"/>
+                </p:column>
+
                 <!--
-                                    <p:column sortBy="#{item.avaliador}" filterBy="#{item.avaliador}">
-                                        <f:facet name="header">
-                                            <h:outputText value="#{myBundle.ListCandidatosTitle_avaliador}"/>
-                                        </f:facet>
-                                        <h:outputText value="#{item.avaliador}"/>
-                                    </p:column>
+                    <p:column sortBy="#{item.avaliadorEliminatoria}" filterBy="#{item.avaliadorEliminatoria}">
+                        <f:facet name="header">
+                            <h:outputText value="#{myBundle.ListCandidatosTitle_avaliadorEliminatoria}"/>
+                        </f:facet>
+                        <h:outputText value="#{item.avaliadorEliminatoria}"/>
+                    </p:column>
                 -->
                 <!--
                                     <p:column sortBy="#{item.linha2}" filterBy="#{item.linha2}">
@@ -159,30 +178,8 @@
                                         <h:outputText value="#{item.bolsa}"/>
                                     </p:column>
                 -->
-                <!--
-                                    <p:column sortBy="#{item.avaliadorEliminatoria}" filterBy="#{item.avaliadorEliminatoria}">
-                                        <f:facet name="header">
-                                            <h:outputText value="#{myBundle.ListCandidatosTitle_avaliadorEliminatoria}"/>
-                                        </f:facet>
-                                        <h:outputText value="#{item.avaliadorEliminatoria}"/>
-                                    </p:column>
-                -->
-                <!--
-                                    <p:column sortBy="#{item.notaEliminatoria}" filterBy="#{item.notaEliminatoria}">
-                                        <f:facet name="header">
-                                            <h:outputText value="#{myBundle.ListCandidatosTitle_notaEliminatoria}"/>
-                                        </f:facet>
-                                        <h:outputText value="#{item.notaEliminatoria}"/>
-                                    </p:column>
-                -->
-                <!--
-                                    <p:column sortBy="#{item.notaAvaliador}" filterBy="#{item.notaAvaliador}">
-                                        <f:facet name="header">
-                                            <h:outputText value="#{myBundle.ListCandidatosTitle_notaAvaliador}"/>
-                                        </f:facet>
-                                        <h:outputText value="#{item.notaAvaliador}"/>
-                                    </p:column>
-                -->
+
+
                 <!--
                                     <p:column sortBy="#{item.notaProvaEscrita}" filterBy="#{item.notaProvaEscrita}">
                                         <f:facet name="header">
@@ -273,10 +270,10 @@
                 -->
                 <f:facet name="footer">
                     <div class="footer-section">
-                        <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{myBundle.Create}" actionListener="#{candidatosController.prepareCreate}" update=":CandidatosCreateForm" oncomplete="PF('CandidatosCreateDialog').show()"/>
+                        <p:commandButton disabled="true" id="createButton" icon="ui-icon-plus"   value="#{myBundle.Create}" actionListener="#{candidatosController.prepareCreate}" update=":CandidatosCreateForm" oncomplete="PF('CandidatosCreateDialog').show()"/>
                         <p:commandButton id="viewButton"   icon="ui-icon-search" value="#{myBundle.View}" update=":CandidatosViewForm" oncomplete="PF('CandidatosViewDialog').show()" disabled="#{empty candidatosController.selected}"/>
                         <p:commandButton id="editButton"   icon="ui-icon-pencil" value="#{myBundle.Edit}" update=":CandidatosEditForm" oncomplete="PF('CandidatosEditDialog').show()" disabled="#{empty candidatosController.selected}"/>
-                        <p:commandButton id="deleteButton" icon="ui-icon-trash"  value="#{myBundle.Delete}" actionListener="#{candidatosController.delete}" update=":growl,datalist" disabled="#{empty candidatosController.selected}">
+                        <p:commandButton disabled="true" id="deleteButton" icon="ui-icon-trash"  value="#{myBundle.Delete}" actionListener="#{candidatosController.delete}" update=":growl,datalist">
                             <p:confirm header="#{myBundle.ConfirmationHeader}" message="#{myBundle.ConfirmDeleteMessage}" icon="ui-icon-alert"/>
                         </p:commandButton>
                     </div>

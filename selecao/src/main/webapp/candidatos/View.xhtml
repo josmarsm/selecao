@@ -35,9 +35,6 @@
                                 <h:outputText value="#{myBundle.ViewCandidatosLabel_linha1}"/>
                                 <h:outputText value="#{candidatosController.selected.linha1}" title="#{myBundle.ViewCandidatosTitle_linha1}"/>
 
-                                <h:outputText value="#{myBundle.ViewCandidatosLabel_avaliador}"/>
-                                <h:outputText value="#{candidatosController.selected.avaliador}" title="#{myBundle.ViewCandidatosTitle_avaliador}"/>
-
                                 <h:outputText value="#{myBundle.ViewCandidatosLabel_linha2}"/>
                                 <h:outputText value="#{candidatosController.selected.linha2}" title="#{myBundle.ViewCandidatosTitle_linha2}"/>
 
@@ -77,13 +74,13 @@
                                 <h:outputText value="#{myBundle.ViewCandidatosLabel_notaProvaEscrita}"/>
                                 <h:outputText value="#{candidatosController.selected.notaProvaEscrita}" title="#{myBundle.ViewCandidatosTitle_notaProvaEscrita}"/>
 
+                                <h:outputText value="#{myBundle.ViewCandidatosLabel_notaEntrevista}"/>
+                                <h:outputText value="#{candidatosController.selected.notaEntrevista}" title="#{myBundle.ViewCandidatosTitle_notaEntrevista}"/>
+
                             </p:panelGrid>
                         </p:tab>
                         <p:tab id="CandidatosTab2" title="#{myBundle.TabHeaderPrefix} 2">
                             <p:panelGrid columns="2" columnClasses="column" rendered="#{candidatosController.selected != null}">
-                                <h:outputText value="#{myBundle.ViewCandidatosLabel_notaEntrevista}"/>
-                                <h:outputText value="#{candidatosController.selected.notaEntrevista}" title="#{myBundle.ViewCandidatosTitle_notaEntrevista}"/>
-
                                 <h:outputText value="#{myBundle.ViewCandidatosLabel_situacao}"/>
                                 <h:outputText value="#{candidatosController.selected.situacao}" title="#{myBundle.ViewCandidatosTitle_situacao}"/>
 

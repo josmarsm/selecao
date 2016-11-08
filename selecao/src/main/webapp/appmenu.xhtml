@@ -10,14 +10,27 @@
         <h:form id="menuForm">
             <p:menubar>
                 <p:menuitem value="#{myBundle.Home}" outcome="/index" icon="ui-icon-home"/>
-                <p:submenu label="#{myBundle.Maintenance}">
-                    <p:menuitem value="#{myBundle.CandidatosHeading}..." outcome="/candidatos/index" />
-                    <p:menuitem value="#{myBundle.ComissaoSelecaoHeading}..." outcome="/comissaoSelecao/index" />
-                    <p:menuitem value="#{myBundle.LinhaPesquisaHeading}..." outcome="/linhaPesquisa/index" />
-                    <p:menuitem value="#{myBundle.MediaposcompHeading}..." outcome="/mediaposcomp/index" />
-                    <p:menuitem value="#{myBundle.TrocasOrientadorHeading}..." outcome="/trocasOrientador/index" />
-                    <p:menuitem value="#{myBundle.UsuariosHeading}..." outcome="/usuarios/index" />
+                <p:submenu label="#{myBundle.Cadastros}">
+                    <p:menuitem disabled="true" value="#{myBundle.CandidatosHeading}..." outcome="/candidatos/index" />
+                    <p:menuitem disabled="true" value="#{myBundle.LinhaHeading}..." outcome="/linha/index" />
+                    <p:menuitem disabled="true" value="#{myBundle.MediaposcompHeading}..." outcome="/mediaposcomp/index" />
+                    <p:menuitem disabled="true" value="#{myBundle.OrientadorHeading}..." outcome="/orientador/index" />
+                    <p:menuitem disabled="true" value="#{myBundle.UsuariosHeading}..." outcome="/usuarios/index" />
                 </p:submenu>
+                <p:submenu label="#{myBundle.Comissao}">
+                    <p:menuitem value="#{myBundle.CandidatosHeading}..." outcome="/candidatos/index" />                   
+                </p:submenu>
+                <p:submenu label="#{myBundle.Orientador}">
+                    <p:menuitem disabled="true" value="#{myBundle.ProvaEscrita}..." outcome="/candidatos/index" />                    
+                    <p:menuitem disabled="true" value="#{myBundle.Entrevista}..." outcome="/candidatos/index" />                    
+                </p:submenu>
+                <p:submenu label="#{myBundle.Relatorios}">
+                    <p:menuitem disabled="true" value="#{myBundle.SelecionadosElininatoria}..." outcome="/candidatos/index" />                    
+                    <p:menuitem disabled="true" value="#{myBundle.SelecionadosGeral}..." outcome="/candidatos/index" />    
+                    <p:menuitem disabled="true" value="#{myBundle.SelecionadosOrientador}..." outcome="/candidatos/index" />                    
+                    <p:menuitem disabled="true" value="#{myBundle.SelecionadosLinha}..." outcome="/candidatos/index" />
+                </p:submenu>
+                
             </p:menubar>
         </h:form>
     </ui:composition>

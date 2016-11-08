@@ -1,8 +1,8 @@
 package br.com.jn.converter;
 
 import br.com.jn.model.Usuarios;
-import br.com.jn.sessionbeans.UsuariosFacade;
-import br.com.jn.backingbeans.util.JsfUtil;
+import br.com.jn.sessionbean.UsuariosFacade;
+import br.com.jn.backingbean.util.JsfUtil;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.faces.convert.FacesConverter;

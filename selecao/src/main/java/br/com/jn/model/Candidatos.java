@@ -23,7 +23,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author pccli
  */
 @Entity
-@Table(name = "candidatos")
+@Table(name = "Candidatos")
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Candidatos.findAll", query = "SELECT c FROM Candidatos c")
@@ -33,7 +33,6 @@ import javax.xml.bind.annotation.XmlRootElement;
     , @NamedQuery(name = "Candidatos.findByNome", query = "SELECT c FROM Candidatos c WHERE c.nome = :nome")
     , @NamedQuery(name = "Candidatos.findByDocumentacao", query = "SELECT c FROM Candidatos c WHERE c.documentacao = :documentacao")
     , @NamedQuery(name = "Candidatos.findByLinha1", query = "SELECT c FROM Candidatos c WHERE c.linha1 = :linha1")
-    , @NamedQuery(name = "Candidatos.findByAvaliador", query = "SELECT c FROM Candidatos c WHERE c.avaliador = :avaliador")
     , @NamedQuery(name = "Candidatos.findByLinha2", query = "SELECT c FROM Candidatos c WHERE c.linha2 = :linha2")
     , @NamedQuery(name = "Candidatos.findByOrientador1", query = "SELECT c FROM Candidatos c WHERE c.orientador1 = :orientador1")
     , @NamedQuery(name = "Candidatos.findByOrientador2", query = "SELECT c FROM Candidatos c WHERE c.orientador2 = :orientador2")
@@ -59,6 +58,22 @@ import javax.xml.bind.annotation.XmlRootElement;
     , @NamedQuery(name = "Candidatos.findByHorario", query = "SELECT c FROM Candidatos c WHERE c.horario = :horario")})
 public class Candidatos implements Serializable {
 
+    @Size(max = 50)
+    @Column(name = "Linha1")
+    private String linha1;
+    @Size(max = 50)
+    @Column(name = "Linha2")
+    private String linha2;
+    @Size(max = 50)
+    @Column(name = "Orientador1")
+    private String orientador1;
+    @Size(max = 50)
+    @Column(name = "Orientador2")
+    private String orientador2;
+    @Size(max = 50)
+    @Column(name = "Orientador3")
+    private String orientador3;
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -77,24 +92,6 @@ public class Candidatos implements Serializable {
     @Size(max = 255)
     @Column(name = "Documentacao")
     private String documentacao;
-    @Size(max = 255)
-    @Column(name = "Linha1")
-    private String linha1;
-    @Size(max = 30)
-    @Column(name = "Avaliador")
-    private String avaliador;
-    @Size(max = 255)
-    @Column(name = "Linha2")
-    private String linha2;
-    @Size(max = 255)
-    @Column(name = "Orientador1")
-    private String orientador1;
-    @Size(max = 255)
-    @Column(name = "Orientador2")
-    private String orientador2;
-    @Size(max = 255)
-    @Column(name = "Orientador3")
-    private String orientador3;
     @Size(max = 255)
     @Column(name = "oldOrientador")
     private String oldOrientador;
@@ -194,53 +191,6 @@ public class Candidatos implements Serializable {
         this.documentacao = documentacao;
     }
 
-    public String getLinha1() {
-        return linha1;
-    }
-
-    public void setLinha1(String linha1) {
-        this.linha1 = linha1;
-    }
-
-    public String getAvaliador() {
-        return avaliador;
-    }
-
-    public void setAvaliador(String avaliador) {
-        this.avaliador = avaliador;
-    }
-
-    public String getLinha2() {
-        return linha2;
-    }
-
-    public void setLinha2(String linha2) {
-        this.linha2 = linha2;
-    }
-
-    public String getOrientador1() {
-        return orientador1;
-    }
-
-    public void setOrientador1(String orientador1) {
-        this.orientador1 = orientador1;
-    }
-
-    public String getOrientador2() {
-        return orientador2;
-    }
-
-    public void setOrientador2(String orientador2) {
-        this.orientador2 = orientador2;
-    }
-
-    public String getOrientador3() {
-        return orientador3;
-    }
-
-    public void setOrientador3(String orientador3) {
-        this.orientador3 = orientador3;
-    }
 
     public String getOldOrientador() {
         return oldOrientador;
@@ -417,6 +367,46 @@ public class Candidatos implements Serializable {
     @Override
     public String toString() {
         return "br.com.jn.model.Candidatos[ id=" + id + " ]";
+    }
+
+    public String getLinha1() {
+        return linha1;
+    }
+
+    public void setLinha1(String linha1) {
+        this.linha1 = linha1;
+    }
+
+    public String getLinha2() {
+        return linha2;
+    }
+
+    public void setLinha2(String linha2) {
+        this.linha2 = linha2;
+    }
+
+    public String getOrientador1() {
+        return orientador1;
+    }
+
+    public void setOrientador1(String orientador1) {
+        this.orientador1 = orientador1;
+    }
+
+    public String getOrientador2() {
+        return orientador2;
+    }
+
+    public void setOrientador2(String orientador2) {
+        this.orientador2 = orientador2;
+    }
+
+    public String getOrientador3() {
+        return orientador3;
+    }
+
+    public void setOrientador3(String orientador3) {
+        this.orientador3 = orientador3;
     }
     
 }

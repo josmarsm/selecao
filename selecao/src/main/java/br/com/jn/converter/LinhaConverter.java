@@ -1,7 +1,7 @@
 package br.com.jn.converter;
 
-import br.com.jn.model.Candidatos;
-import br.com.jn.sessionbean.CandidatosFacade;
+import br.com.jn.model.Linha;
+import br.com.jn.sessionbean.LinhaFacade;
 import br.com.jn.backingbean.util.JsfUtil;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -11,11 +11,11 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
 
-@FacesConverter(value = "candidatosConverter")
-public class CandidatosConverter implements Converter {
+@FacesConverter(value = "linhaConverter")
+public class LinhaConverter implements Converter {
 
     @Inject
-    private CandidatosFacade ejbFacade;
+    private LinhaFacade ejbFacade;
 
     @Override
     public Object getAsObject(FacesContext facesContext, UIComponent component, String value) {
@@ -43,11 +43,11 @@ public class CandidatosConverter implements Converter {
                 || (object instanceof String && ((String) object).length() == 0)) {
             return null;
         }
-        if (object instanceof Candidatos) {
-            Candidatos o = (Candidatos) object;
+        if (object instanceof Linha) {
+            Linha o = (Linha) object;
             return getStringKey(o.getId());
         } else {
-            Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, "object {0} is of type {1}; expected type: {2}", new Object[]{object, object.getClass().getName(), Candidatos.class.getName()});
+            Logger.getLogger(this.getClass().getName()).log(Level.SEVERE, "object {0} is of type {1}; expected type: {2}", new Object[]{object, object.getClass().getName(), Linha.class.getName()});
             return null;
         }
     }

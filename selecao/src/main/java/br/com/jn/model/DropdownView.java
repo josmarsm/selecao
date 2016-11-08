@@ -35,10 +35,10 @@ public class DropdownView implements Serializable {
     @PostConstruct
     public void init() {
         linhas = new HashMap<String, String>();
-        linhas.put("Computação Aplicada", "1");
-        linhas.put("Linguagens de Programação e Bancos de Dados", "2");
-        linhas.put("Microeletrônica e Processamento de Sinais", "3");
-        linhas.put("Sistemas Paralelos e Distribuídos", "4");
+        linhas.put("Computação Aplicada", "Computação Aplicada");
+        linhas.put("Linguagens de Programação e Bancos de Dados", "Linguagens de Programação e Bancos de Dados");
+        linhas.put("Microeletrônica e Processamento de Sinais", "Microeletrônica e Processamento de Sinais");
+        linhas.put("Sistemas Paralelos e Distribuídos", "Sistemas Paralelos e Distribuídos");
         
         orientadores = new HashMap<String, String>();
         orientadores.put("Alencar Machado", "1");

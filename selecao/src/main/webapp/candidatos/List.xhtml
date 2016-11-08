@@ -98,14 +98,14 @@
                     <h:outputText value="#{item.notaEliminatoria}"/>
                 </p:column>
 
-                <!--
-                    <p:column sortBy="#{item.avaliadorEliminatoria}" filterBy="#{item.avaliadorEliminatoria}">
-                        <f:facet name="header">
-                            <h:outputText value="#{myBundle.ListCandidatosTitle_avaliadorEliminatoria}"/>
-                        </f:facet>
-                        <h:outputText value="#{item.avaliadorEliminatoria}"/>
-                    </p:column>
-                -->
+
+                <p:column sortBy="#{item.avaliadorEliminatoria}" filterBy="#{item.avaliadorEliminatoria}">
+                    <f:facet name="header">
+                        <h:outputText value="#{myBundle.ListCandidatosTitle_avaliadorEliminatoria}"/>
+                    </f:facet>
+                    <h:outputText value="#{item.avaliadorEliminatoria}"/>
+                </p:column>
+
                 <!--
                                     <p:column sortBy="#{item.linha2}" filterBy="#{item.linha2}">
                                         <f:facet name="header">

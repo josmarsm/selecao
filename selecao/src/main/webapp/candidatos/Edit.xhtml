@@ -61,10 +61,16 @@
                                 </p:selectOneRadio>
 
                                 <p:outputLabel value="#{myBundle.EditCandidatosLabel_anoPoscomp}" for="anoPoscomp" />
-                                <p:inputText id="anoPoscomp" value="#{candidatosController.selected.anoPoscomp}" title="#{myBundle.EditCandidatosTitle_anoPoscomp}"/>
+                                <p:selectOneMenu id="anoPoscomp" value="#{candidatosController.selected.anoPoscomp}" style="width:150px">                                    
+                                    <f:selectItem itemLabel="" itemValue="" noSelectionOption="true" />
+                                    <f:selectItem itemLabel="2013" itemValue="2013" />
+                                    <f:selectItem itemLabel="2014" itemValue="2014" />
+                                    <f:selectItem itemLabel="2015" itemValue="2015" />
+                                    <f:selectItem itemLabel="2016" itemValue="2016" />
+                                </p:selectOneMenu>
 
                                 <p:outputLabel value="#{myBundle.EditCandidatosLabel_notaPoscomp}" for="notaPoscomp" />
-                                <p:inputText id="notaPoscomp" value="#{candidatosController.selected.notaPoscomp}" title="#{myBundle.EditCandidatosTitle_notaPoscomp}"/>
+                                <p:inputMask id="notaPoscomp" value="#{candidatosController.selected.notaPoscomp}" title="#{myBundle.EditCandidatosTitle_notaPoscomp}"  mask="99.99"/>
 
                                 <p:outputLabel value="#{myBundle.EditCandidatosLabel_bolsa}" for="bolsa" />
                                 <p:selectOneRadio id="bolsa" value="#{candidatosController.selected.bolsa}">
@@ -73,13 +79,15 @@
                                 </p:selectOneRadio>
 
                                 <p:outputLabel value="#{myBundle.EditCandidatosLabel_avaliadorEliminatoria}" for="avaliadorEliminatoria" />
-                                <p:inputText id="avaliadorEliminatoria" value="#{candidatosController.selected.avaliadorEliminatoria}" title="#{myBundle.EditCandidatosTitle_avaliadorEliminatoria}" size="40" maxlength="40"/>
+                                <p:inputText disabled="true" id="avaliadorEliminatoria" value="#{candidatosController.selected.avaliadorEliminatoria}" title="#{myBundle.EditCandidatosTitle_avaliadorEliminatoria}" size="40" maxlength="40"/>
 
                                 <p:outputLabel value="#{myBundle.EditCandidatosLabel_notaAvaliador}" for="notaAvaliador" />
                                 <p:inputMask id="notaAvaliador" value="#{candidatosController.selected.notaAvaliador}" title="#{myBundle.EditCandidatosTitle_notaAvaliador}" mask="99.99"/>
                                                                
                                 <p:outputLabel value="#{myBundle.EditCandidatosLabel_notaEliminatoria}" for="notaEliminatoria" />
                                 <p:inputMask id="notaEliminatoria" value="#{candidatosController.selected.notaEliminatoria}" title="#{myBundle.EditCandidatosTitle_notaEliminatoria}" mask="99.99"/>
+
+
 
                             </p:panelGrid>
                         </p:tab>

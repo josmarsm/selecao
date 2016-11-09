@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="UserrolesViewDlg" widgetVar="UserrolesViewDialog" modal="true" resizable="false"  appendTo="@(body)" header="#{myBundle.ViewUserrolesTitle}" closeOnEscape="true">
+
+            <h:form id="UserrolesViewForm">
+
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" columnClasses="column" rendered="#{userrolesController.selected != null}">
+
+                        <h:outputText value="#{myBundle.ViewUserrolesLabel_userRoleId}"/>
+                        <h:outputText value="#{userrolesController.selected.userRoleId}" title="#{myBundle.ViewUserrolesTitle_userRoleId}"/>
+
+                        <h:outputText value="#{myBundle.ViewUserrolesLabel_userId}"/>
+                        <h:outputText value="#{userrolesController.selected.userId}" title="#{myBundle.ViewUserrolesTitle_userId}"/>
+
+                        <h:outputText value="#{myBundle.ViewUserrolesLabel_authority}"/>
+                        <h:outputText value="#{userrolesController.selected.authority}" title="#{myBundle.ViewUserrolesTitle_authority}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{myBundle.Close}" onclick="PF('UserrolesViewDialog').hide()"/>
+                </h:panelGroup>
+
+            </h:form>
+
+        </p:dialog>
+
+    </ui:composition>
+
+</html>

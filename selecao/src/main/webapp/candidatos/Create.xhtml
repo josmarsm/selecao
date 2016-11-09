@@ -24,25 +24,22 @@
                                 <p:inputText id="cpf" value="#{candidatosController.selected.cpf}" title="#{myBundle.CreateCandidatosTitle_cpf}" size="14" maxlength="14"/>
 
                                 <p:outputLabel value="#{myBundle.CreateCandidatosLabel_nome}" for="nome" />
-                                <p:inputText id="nome" value="#{candidatosController.selected.nome}" title="#{myBundle.CreateCandidatosTitle_nome}" size="150" maxlength="150"/>
-
-                                <p:outputLabel value="#{myBundle.CreateCandidatosLabel_documentacao}" for="documentacao" />
-                                <p:inputText id="documentacao" value="#{candidatosController.selected.documentacao}" title="#{myBundle.CreateCandidatosTitle_documentacao}" size="255" maxlength="255"/>
+                                <p:inputText id="nome" value="#{candidatosController.selected.nome}" title="#{myBundle.CreateCandidatosTitle_nome}" size="50" maxlength="50"/>
 
                                 <p:outputLabel value="#{myBundle.CreateCandidatosLabel_linha1}" for="linha1" />
-                                <p:inputText id="linha1" value="#{candidatosController.selected.linha1}" title="#{myBundle.CreateCandidatosTitle_linha1}"/>
+                                <p:inputText id="linha1" value="#{candidatosController.selected.linha1}" title="#{myBundle.CreateCandidatosTitle_linha1}" size="50" maxlength="50"/>
 
                                 <p:outputLabel value="#{myBundle.CreateCandidatosLabel_linha2}" for="linha2" />
-                                <p:inputText id="linha2" value="#{candidatosController.selected.linha2}" title="#{myBundle.CreateCandidatosTitle_linha2}"/>
+                                <p:inputText id="linha2" value="#{candidatosController.selected.linha2}" title="#{myBundle.CreateCandidatosTitle_linha2}" size="50" maxlength="50"/>
 
                                 <p:outputLabel value="#{myBundle.CreateCandidatosLabel_orientador1}" for="orientador1" />
-                                <p:inputText id="orientador1" value="#{candidatosController.selected.orientador1}" title="#{myBundle.CreateCandidatosTitle_orientador1}"/>
+                                <p:inputText id="orientador1" value="#{candidatosController.selected.orientador1}" title="#{myBundle.CreateCandidatosTitle_orientador1}" size="50" maxlength="50"/>
 
                                 <p:outputLabel value="#{myBundle.CreateCandidatosLabel_orientador2}" for="orientador2" />
-                                <p:inputText id="orientador2" value="#{candidatosController.selected.orientador2}" title="#{myBundle.CreateCandidatosTitle_orientador2}"/>
+                                <p:inputText id="orientador2" value="#{candidatosController.selected.orientador2}" title="#{myBundle.CreateCandidatosTitle_orientador2}" size="50" maxlength="50"/>
 
                                 <p:outputLabel value="#{myBundle.CreateCandidatosLabel_orientador3}" for="orientador3" />
-                                <p:inputText id="orientador3" value="#{candidatosController.selected.orientador3}" title="#{myBundle.CreateCandidatosTitle_orientador3}"/>
+                                <p:inputText id="orientador3" value="#{candidatosController.selected.orientador3}" title="#{myBundle.CreateCandidatosTitle_orientador3}" size="50" maxlength="50"/>
 
                                 <p:outputLabel value="#{myBundle.CreateCandidatosLabel_oldOrientador}" for="oldOrientador" />
                                 <p:inputText id="oldOrientador" value="#{candidatosController.selected.oldOrientador}" title="#{myBundle.CreateCandidatosTitle_oldOrientador}" size="255" maxlength="255"/>
@@ -51,7 +48,7 @@
                                 <p:inputText id="poscomp" value="#{candidatosController.selected.poscomp}" title="#{myBundle.CreateCandidatosTitle_poscomp}" size="255" maxlength="255"/>
 
                                 <p:outputLabel value="#{myBundle.CreateCandidatosLabel_anoPoscomp}" for="anoPoscomp" />
-                                <p:inputText id="anoPoscomp" value="#{candidatosController.selected.anoPoscomp}" title="#{myBundle.CreateCandidatosTitle_anoPoscomp}"/>
+                                <p:inputText id="anoPoscomp" value="#{candidatosController.selected.anoPoscomp}" title="#{myBundle.CreateCandidatosTitle_anoPoscomp}" size="4" maxlength="4"/>
 
                                 <p:outputLabel value="#{myBundle.CreateCandidatosLabel_notaPoscomp}" for="notaPoscomp" />
                                 <p:inputText id="notaPoscomp" value="#{candidatosController.selected.notaPoscomp}" title="#{myBundle.CreateCandidatosTitle_notaPoscomp}"/>
@@ -77,13 +74,13 @@
                                 <p:outputLabel value="#{myBundle.CreateCandidatosLabel_situacao}" for="situacao" />
                                 <p:inputText id="situacao" value="#{candidatosController.selected.situacao}" title="#{myBundle.CreateCandidatosTitle_situacao}" size="2" maxlength="2"/>
 
+                                <p:outputLabel value="#{myBundle.CreateCandidatosLabel_URLLattes}" for="URLLattes" />
+                                <p:inputText id="URLLattes" value="#{candidatosController.selected.URLLattes}" title="#{myBundle.CreateCandidatosTitle_URLLattes}" size="255" maxlength="255"/>
+
                             </p:panelGrid>
                         </p:tab>
                         <p:tab id="CandidatosTab2" title="#{myBundle.TabHeaderPrefix} 2">
                             <p:panelGrid columns="2" columnClasses="column">
-                                <p:outputLabel value="#{myBundle.CreateCandidatosLabel_URLLattes}" for="URLLattes" />
-                                <p:inputText id="URLLattes" value="#{candidatosController.selected.URLLattes}" title="#{myBundle.CreateCandidatosTitle_URLLattes}" size="255" maxlength="255"/>
-
                                 <p:outputLabel value="#{myBundle.CreateCandidatosLabel_historico}" for="historico" />
                                 <p:inputText id="historico" value="#{candidatosController.selected.historico}" title="#{myBundle.CreateCandidatosTitle_historico}" size="255" maxlength="255"/>
 
@@ -104,6 +101,9 @@
 
                                 <p:outputLabel value="#{myBundle.CreateCandidatosLabel_horario}" for="horario" />
                                 <p:inputText id="horario" value="#{candidatosController.selected.horario}" title="#{myBundle.CreateCandidatosTitle_horario}" size="255" maxlength="255"/>
+
+                                <p:outputLabel value="#{myBundle.CreateCandidatosLabel_documentacao}" for="documentacao" />
+                                <p:inputTextarea rows="4" cols="30" id="documentacao" value="#{candidatosController.selected.documentacao}" title="#{myBundle.CreateCandidatosTitle_documentacao}" />
                             </p:panelGrid>
                         </p:tab>
                     </p:tabView>

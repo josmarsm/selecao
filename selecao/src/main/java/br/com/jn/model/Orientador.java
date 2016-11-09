@@ -22,7 +22,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author pccli
+ * @author josmarsm
  */
 @Entity
 @Table(name = "Orientador")
@@ -101,5 +101,5 @@ public class Orientador implements Serializable {
     public String toString() {
         return "br.com.jn.model.Orientador[ id=" + id + " ]";
     }
-    
+
 }

@@ -6,7 +6,6 @@
 package br.com.jn.model;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,7 +15,6 @@ import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
-import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -24,14 +22,13 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author josmarsm
  */
 @Entity
-@Table(name = "mediaposcomp")
+@Table(name = "ComissaoSelecao")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Mediaposcomp.findAll", query = "SELECT m FROM Mediaposcomp m")
-    , @NamedQuery(name = "Mediaposcomp.findById", query = "SELECT m FROM Mediaposcomp m WHERE m.id = :id")
-    , @NamedQuery(name = "Mediaposcomp.findByAno", query = "SELECT m FROM Mediaposcomp m WHERE m.ano = :ano")
-    , @NamedQuery(name = "Mediaposcomp.findByMedia", query = "SELECT m FROM Mediaposcomp m WHERE m.media = :media")})
-public class Mediaposcomp implements Serializable {
+    @NamedQuery(name = "ComissaoSelecao.findAll", query = "SELECT c FROM ComissaoSelecao c")
+    , @NamedQuery(name = "ComissaoSelecao.findById", query = "SELECT c FROM ComissaoSelecao c WHERE c.id = :id")
+    , @NamedQuery(name = "ComissaoSelecao.findByMembro", query = "SELECT c FROM ComissaoSelecao c WHERE c.membro = :membro")})
+public class ComissaoSelecao implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -39,17 +36,13 @@ public class Mediaposcomp implements Serializable {
     @Basic(optional = false)
     @Column(name = "Id")
     private Integer id;
-    @Size(max = 4)
-    @Column(name = "Ano")
-    private String ano;
-    // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
-    @Column(name = "Media")
-    private BigDecimal media;
+    @Column(name = "Membro")
+    private Integer membro;
 
-    public Mediaposcomp() {
+    public ComissaoSelecao() {
     }
 
-    public Mediaposcomp(Integer id) {
+    public ComissaoSelecao(Integer id) {
         this.id = id;
     }
 
@@ -61,20 +54,12 @@ public class Mediaposcomp implements Serializable {
         this.id = id;
     }
 
-    public String getAno() {
-        return ano;
+    public Integer getMembro() {
+        return membro;
     }
 
-    public void setAno(String ano) {
-        this.ano = ano;
-    }
-
-    public BigDecimal getMedia() {
-        return media;
-    }
-
-    public void setMedia(BigDecimal media) {
-        this.media = media;
+    public void setMembro(Integer membro) {
+        this.membro = membro;
     }
 
     @Override
@@ -87,10 +72,10 @@ public class Mediaposcomp implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Mediaposcomp)) {
+        if (!(object instanceof ComissaoSelecao)) {
             return false;
         }
-        Mediaposcomp other = (Mediaposcomp) object;
+        ComissaoSelecao other = (ComissaoSelecao) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -99,7 +84,7 @@ public class Mediaposcomp implements Serializable {
 
     @Override
     public String toString() {
-        return "br.com.jn.model.Mediaposcomp[ id=" + id + " ]";
+        return "br.com.jn.model.ComissaoSelecao[ id=" + id + " ]";
     }
     
 }

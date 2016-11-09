@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+        <p:dialog id="UserrolesEditDlg" widgetVar="UserrolesEditDialog" modal="true" resizable="false"  appendTo="@(body)" header="#{myBundle.EditUserrolesTitle}" closeOnEscape="true">
+
+            <h:form id="UserrolesEditForm">
+
+                <h:panelGroup id="display">
+                    <p:panelGrid  columns="2" columnClasses="column" rendered="#{userrolesController.selected != null}">
+
+
+                        <h:outputLabel value="#{myBundle.EditUserrolesLabel_userRoleId}" for="userRoleId" />
+                        <h:outputText id="userRoleId" value="#{userrolesController.selected.userRoleId}" />
+
+                        <p:outputLabel value="#{myBundle.EditUserrolesLabel_userId}" for="userId" />
+                        <p:inputText id="userId" value="#{userrolesController.selected.userId}" title="#{myBundle.EditUserrolesTitle_userId}" required="true" requiredMessage="#{myBundle.EditUserrolesRequiredMessage_userId}"/>
+
+                        <p:outputLabel value="#{myBundle.EditUserrolesLabel_authority}" for="authority" />
+                        <p:inputText id="authority" value="#{userrolesController.selected.authority}" title="#{myBundle.EditUserrolesTitle_authority}" required="true" requiredMessage="#{myBundle.EditUserrolesRequiredMessage_authority}" size="45" maxlength="45"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{userrolesController.save}" value="#{myBundle.Save}" update="display,:UserrolesListForm:datalist,:growl" oncomplete="handleSubmit(xhr,status,args,PF('UserrolesEditDialog'));">
+                        <p:confirm header="#{myBundle.ConfirmationHeader}" message="#{myBundle.ConfirmEditMessage}" icon="ui-icon-alert"/>
+                    </p:commandButton>
+                    <p:commandButton value="#{myBundle.Cancel}" oncomplete="PF('UserrolesEditDialog').hide()" update="display" process="@this" immediate="true" resetValues="true"/>
+                </h:panelGroup>
+
+            </h:form>
+
+        </p:dialog>
+
+    </ui:composition>
+
+</html>

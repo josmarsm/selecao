@@ -12,6 +12,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -20,7 +21,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author pccli
+ * @author josmarsm
  */
 @Entity
 @Table(name = "Candidatos")
@@ -31,7 +32,6 @@ import javax.xml.bind.annotation.XmlRootElement;
     , @NamedQuery(name = "Candidatos.findByInscricao", query = "SELECT c FROM Candidatos c WHERE c.inscricao = :inscricao")
     , @NamedQuery(name = "Candidatos.findByCpf", query = "SELECT c FROM Candidatos c WHERE c.cpf = :cpf")
     , @NamedQuery(name = "Candidatos.findByNome", query = "SELECT c FROM Candidatos c WHERE c.nome = :nome")
-    , @NamedQuery(name = "Candidatos.findByDocumentacao", query = "SELECT c FROM Candidatos c WHERE c.documentacao = :documentacao")
     , @NamedQuery(name = "Candidatos.findByLinha1", query = "SELECT c FROM Candidatos c WHERE c.linha1 = :linha1")
     , @NamedQuery(name = "Candidatos.findByLinha2", query = "SELECT c FROM Candidatos c WHERE c.linha2 = :linha2")
     , @NamedQuery(name = "Candidatos.findByOrientador1", query = "SELECT c FROM Candidatos c WHERE c.orientador1 = :orientador1")
@@ -58,6 +58,21 @@ import javax.xml.bind.annotation.XmlRootElement;
     , @NamedQuery(name = "Candidatos.findByHorario", query = "SELECT c FROM Candidatos c WHERE c.horario = :horario")})
 public class Candidatos implements Serializable {
 
+    private static final long serialVersionUID = 1L;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
+    @Column(name = "id")
+    private Integer id;
+    @Size(max = 20)
+    @Column(name = "Inscricao")
+    private String inscricao;
+    @Size(max = 14)
+    @Column(name = "cpf")
+    private String cpf;
+    @Size(max = 50)
+    @Column(name = "Nome")
+    private String nome;
     @Size(max = 50)
     @Column(name = "Linha1")
     private String linha1;
@@ -73,34 +88,16 @@ public class Candidatos implements Serializable {
     @Size(max = 50)
     @Column(name = "Orientador3")
     private String orientador3;
-
-    private static final long serialVersionUID = 1L;
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Basic(optional = false)
-    @Column(name = "id")
-    private Integer id;
-    @Size(max = 20)
-    @Column(name = "Inscricao")
-    private String inscricao;
-    @Size(max = 14)
-    @Column(name = "cpf")
-    private String cpf;
-    @Size(max = 150)
-    @Column(name = "Nome")
-    private String nome;
-    @Size(max = 255)
-    @Column(name = "Documentacao")
-    private String documentacao;
     @Size(max = 255)
     @Column(name = "oldOrientador")
     private String oldOrientador;
     @Size(max = 255)
     @Column(name = "Poscomp")
     private String poscomp;
-    // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
+    @Size(max = 4)
     @Column(name = "AnoPoscomp")
-    private Double anoPoscomp;
+    private String anoPoscomp;
+    // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Column(name = "NotaPoscomp")
     private Double notaPoscomp;
     @Size(max = 255)
@@ -143,6 +140,10 @@ public class Candidatos implements Serializable {
     @Size(max = 255)
     @Column(name = "Horario")
     private String horario;
+    @Lob
+    @Size(max = 2147483647)
+    @Column(name = "Documentacao")
+    private String documentacao;
 
     public Candidatos() {
     }
@@ -183,14 +184,45 @@ public class Candidatos implements Serializable {
         this.nome = nome;
     }
 
-    public String getDocumentacao() {
-        return documentacao;
+    public String getLinha1() {
+        return linha1;
     }
 
-    public void setDocumentacao(String documentacao) {
-        this.documentacao = documentacao;
+    public void setLinha1(String linha1) {
+        this.linha1 = linha1;
     }
 
+    public String getLinha2() {
+        return linha2;
+    }
+
+    public void setLinha2(String linha2) {
+        this.linha2 = linha2;
+    }
+
+    public String getOrientador1() {
+        return orientador1;
+    }
+
+    public void setOrientador1(String orientador1) {
+        this.orientador1 = orientador1;
+    }
+
+    public String getOrientador2() {
+        return orientador2;
+    }
+
+    public void setOrientador2(String orientador2) {
+        this.orientador2 = orientador2;
+    }
+
+    public String getOrientador3() {
+        return orientador3;
+    }
+
+    public void setOrientador3(String orientador3) {
+        this.orientador3 = orientador3;
+    }
 
     public String getOldOrientador() {
         return oldOrientador;
@@ -208,11 +240,11 @@ public class Candidatos implements Serializable {
         this.poscomp = poscomp;
     }
 
-    public Double getAnoPoscomp() {
+    public String getAnoPoscomp() {
         return anoPoscomp;
     }
 
-    public void setAnoPoscomp(Double anoPoscomp) {
+    public void setAnoPoscomp(String anoPoscomp) {
         this.anoPoscomp = anoPoscomp;
     }
 
@@ -344,6 +376,14 @@ public class Candidatos implements Serializable {
         this.horario = horario;
     }
 
+    public String getDocumentacao() {
+        return documentacao;
+    }
+
+    public void setDocumentacao(String documentacao) {
+        this.documentacao = documentacao;
+    }
+
     @Override
     public int hashCode() {
         int hash = 0;
@@ -367,46 +407,6 @@ public class Candidatos implements Serializable {
     @Override
     public String toString() {
         return "br.com.jn.model.Candidatos[ id=" + id + " ]";
-    }
-
-    public String getLinha1() {
-        return linha1;
-    }
-
-    public void setLinha1(String linha1) {
-        this.linha1 = linha1;
-    }
-
-    public String getLinha2() {
-        return linha2;
-    }
-
-    public void setLinha2(String linha2) {
-        this.linha2 = linha2;
-    }
-
-    public String getOrientador1() {
-        return orientador1;
-    }
-
-    public void setOrientador1(String orientador1) {
-        this.orientador1 = orientador1;
-    }
-
-    public String getOrientador2() {
-        return orientador2;
-    }
-
-    public void setOrientador2(String orientador2) {
-        this.orientador2 = orientador2;
-    }
-
-    public String getOrientador3() {
-        return orientador3;
-    }
-
-    public void setOrientador3(String orientador3) {
-        this.orientador3 = orientador3;
     }
     
 }

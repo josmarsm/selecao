@@ -15,7 +15,7 @@ import javax.persistence.criteria.Root;
 
 /**
  *
- * @author pccli
+ * @author josmarsm
  */
 public abstract class AbstractFacade<T> {
 

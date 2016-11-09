@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="UserrolesCreateDlg" widgetVar="UserrolesCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{myBundle.CreateUserrolesTitle}" closeOnEscape="true">
+
+            <h:form id="UserrolesCreateForm">
+
+                <h:panelGroup id="display" rendered="#{userrolesController.selected != null}">
+                    <p:panelGrid columns="2" columnClasses="column">
+
+                        <p:outputLabel value="#{myBundle.CreateUserrolesLabel_userRoleId}" for="userRoleId" />
+                        <p:inputText id="userRoleId" value="#{userrolesController.selected.userRoleId}" title="#{myBundle.CreateUserrolesTitle_userRoleId}" required="true" requiredMessage="#{myBundle.CreateUserrolesRequiredMessage_userRoleId}"/>
+
+                        <p:outputLabel value="#{myBundle.CreateUserrolesLabel_userId}" for="userId" />
+                        <p:inputText id="userId" value="#{userrolesController.selected.userId}" title="#{myBundle.CreateUserrolesTitle_userId}" required="true" requiredMessage="#{myBundle.CreateUserrolesRequiredMessage_userId}"/>
+
+                        <p:outputLabel value="#{myBundle.CreateUserrolesLabel_authority}" for="authority" />
+                        <p:inputText id="authority" value="#{userrolesController.selected.authority}" title="#{myBundle.CreateUserrolesTitle_authority}" required="true" requiredMessage="#{myBundle.CreateUserrolesRequiredMessage_authority}" size="45" maxlength="45"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{userrolesController.saveNew}" value="#{myBundle.Save}" update="display,:UserrolesListForm:datalist,:growl" oncomplete="handleSubmit(xhr,status,args,PF('UserrolesCreateDialog'));">
+                        <p:confirm header="#{myBundle.ConfirmationHeader}" message="#{myBundle.ConfirmCreateMessage}" icon="ui-icon-alert"/>
+                    </p:commandButton>
+
+                    <p:commandButton value="#{myBundle.Cancel}" oncomplete="PF('UserrolesCreateDialog').hide()" update="display" process="@this" immediate="true" resetValues="true"/>
+                </h:panelGroup>
+
+            </h:form>
+
+        </p:dialog>
+
+    </ui:composition>
+
+</html>

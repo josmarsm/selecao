@@ -5,7 +5,7 @@
  */
 package br.com.jn.sessionbean;
 
-import br.com.jn.model.Orientador;
+import br.com.jn.model.ComissaoSelecao;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -15,7 +15,7 @@ import javax.persistence.PersistenceContext;
  * @author josmarsm
  */
 @Stateless
-public class OrientadorFacade extends AbstractFacade<Orientador> {
+public class ComissaoSelecaoFacade extends AbstractFacade<ComissaoSelecao> {
 
     @PersistenceContext(unitName = "br.com.jn_selecao_war_1.0-SNAPSHOTPU")
     private EntityManager em;
@@ -25,8 +25,8 @@ public class OrientadorFacade extends AbstractFacade<Orientador> {
         return em;
     }
 
-    public OrientadorFacade() {
-        super(Orientador.class);
+    public ComissaoSelecaoFacade() {
+        super(ComissaoSelecao.class);
     }
     
 }

@@ -29,9 +29,6 @@
                                 <h:outputText value="#{myBundle.ViewCandidatosLabel_nome}"/>
                                 <h:outputText value="#{candidatosController.selected.nome}" title="#{myBundle.ViewCandidatosTitle_nome}"/>
 
-                                <h:outputText value="#{myBundle.ViewCandidatosLabel_documentacao}"/>
-                                <h:outputText value="#{candidatosController.selected.documentacao}" title="#{myBundle.ViewCandidatosTitle_documentacao}"/>
-
                                 <h:outputText value="#{myBundle.ViewCandidatosLabel_linha1}"/>
                                 <h:outputText value="#{candidatosController.selected.linha1}" title="#{myBundle.ViewCandidatosTitle_linha1}"/>
 
@@ -77,13 +74,13 @@
                                 <h:outputText value="#{myBundle.ViewCandidatosLabel_notaEntrevista}"/>
                                 <h:outputText value="#{candidatosController.selected.notaEntrevista}" title="#{myBundle.ViewCandidatosTitle_notaEntrevista}"/>
 
+                                <h:outputText value="#{myBundle.ViewCandidatosLabel_situacao}"/>
+                                <h:outputText value="#{candidatosController.selected.situacao}" title="#{myBundle.ViewCandidatosTitle_situacao}"/>
+
                             </p:panelGrid>
                         </p:tab>
                         <p:tab id="CandidatosTab2" title="#{myBundle.TabHeaderPrefix} 2">
                             <p:panelGrid columns="2" columnClasses="column" rendered="#{candidatosController.selected != null}">
-                                <h:outputText value="#{myBundle.ViewCandidatosLabel_situacao}"/>
-                                <h:outputText value="#{candidatosController.selected.situacao}" title="#{myBundle.ViewCandidatosTitle_situacao}"/>
-
                                 <h:outputText value="#{myBundle.ViewCandidatosLabel_URLLattes}"/>
                                 <h:outputText value="#{candidatosController.selected.URLLattes}" title="#{myBundle.ViewCandidatosTitle_URLLattes}"/>
 
@@ -107,6 +104,9 @@
 
                                 <h:outputText value="#{myBundle.ViewCandidatosLabel_horario}"/>
                                 <h:outputText value="#{candidatosController.selected.horario}" title="#{myBundle.ViewCandidatosTitle_horario}"/>
+
+                                <h:outputText value="#{myBundle.ViewCandidatosLabel_documentacao}"/>
+                                <h:outputText value="#{candidatosController.selected.documentacao}" title="#{myBundle.ViewCandidatosTitle_documentacao}"/>
                             </p:panelGrid>
                         </p:tab>
                     </p:tabView>

@@ -55,9 +55,10 @@ import javax.xml.bind.annotation.XmlRootElement;
     , @NamedQuery(name = "Candidatos.findByNotaBolsas", query = "SELECT c FROM Candidatos c WHERE c.notaBolsas = :notaBolsas")
     , @NamedQuery(name = "Candidatos.findByDia", query = "SELECT c FROM Candidatos c WHERE c.dia = :dia")
     , @NamedQuery(name = "Candidatos.findByLocal", query = "SELECT c FROM Candidatos c WHERE c.local = :local")
+    , @NamedQuery(name = "Candidatos.selecionadosFase1", query = "SELECT c FROM Candidatos c WHERE c.notaEliminatoria >= 5 ORDER BY c.nome")
     , @NamedQuery(name = "Candidatos.findByHorario", query = "SELECT c FROM Candidatos c WHERE c.horario = :horario")})
 public class Candidatos implements Serializable {
-
+    
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -408,5 +409,5 @@ public class Candidatos implements Serializable {
     public String toString() {
         return "br.com.jn.model.Candidatos[ id=" + id + " ]";
     }
-    
+
 }

@@ -8,11 +8,11 @@
 
     <h:form id="CandidatosListForm">
 
-        <p:dataList value="#{Relatorios.dataListView.candidatos}" var="candidatos" type="ordered">
+        <p:dataList value="#{dataListView.}" var="candidatos" type="ordered">
             <f:facet name="header">
                 Selecionados para a segunda fase
             </f:facet>
-            #{candidatos.nome}
+            #{candidatos..nome}
         </p:dataList>
     </h:form>
 

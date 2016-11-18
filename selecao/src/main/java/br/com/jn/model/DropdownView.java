@@ -39,7 +39,7 @@ public class DropdownView implements Serializable {
         linhas.put("Linguagens de Programação e Bancos de Dados", "Linguagens de Programação e Bancos de Dados");
         linhas.put("Microeletrônica e Processamento de Sinais", "Microeletrônica e Processamento de Sinais");
         linhas.put("Sistemas Paralelos e Distribuídos", "Sistemas Paralelos e Distribuídos");
-        
+
         orientadores = new HashMap<String, String>();
         orientadores.put("Alencar Machado", "1");
         orientadores.put("Alice de Jesus Kozakevicius", "2");
@@ -72,8 +72,11 @@ public class DropdownView implements Serializable {
         orientadores.put("Raul Ceretta Nunes", "29");
         orientadores.put("Renato Machado", "30");
         orientadores.put("Roseclea Duarte Medina", "31");
-        orientadores.put("Simone Regina Ceolin","32");
-
+        orientadores.put("Simone Regina Ceolin", "32");
+        orientadores.put("Daniel Welfer", "33");
+        orientadores.put("Marcelo Serrano Zanetti", "34");
+        orientadores.put("Márcia Pasin", "35");
+        orientadores.put("Patrícia Pithan de Araujo Barcelos", "36");
 
         countries = new HashMap<String, String>();
         countries.put("Computação Aplicada", "1");

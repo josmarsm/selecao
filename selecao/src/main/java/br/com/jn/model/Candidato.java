@@ -28,7 +28,6 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Candidato.findAll", query = "SELECT c FROM Candidato c")
-    , @NamedQuery(name = "Candidato.findById", query = "SELECT c FROM Candidato c WHERE c.id = :id")
     , @NamedQuery(name = "Candidato.findByInscricao", query = "SELECT c FROM Candidato c WHERE c.inscricao = :inscricao")
     , @NamedQuery(name = "Candidato.findByCpf", query = "SELECT c FROM Candidato c WHERE c.cpf = :cpf")
     , @NamedQuery(name = "Candidato.findByNome", query = "SELECT c FROM Candidato c WHERE c.nome = :nome")
@@ -55,7 +54,8 @@ import javax.xml.bind.annotation.XmlRootElement;
     , @NamedQuery(name = "Candidato.findByNotaBolsas", query = "SELECT c FROM Candidato c WHERE c.notaBolsas = :notaBolsas")
     , @NamedQuery(name = "Candidato.findByDia", query = "SELECT c FROM Candidato c WHERE c.dia = :dia")
     , @NamedQuery(name = "Candidato.findByLocal", query = "SELECT c FROM Candidato c WHERE c.local = :local")
-    , @NamedQuery(name = "Candidato.findByHorario", query = "SELECT c FROM Candidato c WHERE c.horario = :horario")})
+    , @NamedQuery(name = "Candidato.findByHorario", query = "SELECT c FROM Candidato c WHERE c.horario = :horario")
+    , @NamedQuery(name = "Candidato.selecionadosGeral", query = "SELECT c FROM Candidato c WHERE c.notaEliminatoria > '5'")})
 public class Candidato implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -408,5 +408,5 @@ public class Candidato implements Serializable {
     public String toString() {
         return "br.com.jn.model.Candidato[ id=" + id + " ]";
     }
-    
+
 }

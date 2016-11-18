@@ -9,49 +9,49 @@ package br.com.jn.dao;
  *
  * @author pccli
  */
-import br.com.jn.dao.DataListView;
+
 import br.com.jn.model.Candidato;
-import java.io.Serializable;
+import java.text.MessageFormat;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
-import javax.annotation.PostConstruct;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
-import javax.faces.bean.ViewScoped;
+import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.ejb.Stateless;
+import javax.inject.Named;
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
+import javax.persistence.PersistenceContext;
 
-@ManagedBean
-@ViewScoped
-public class DataListView implements Serializable {
+@Named("beancandidato")
+@Stateless
+public class DataListView {
 
-    private EntityManager getEntityManager() {
-        EntityManagerFactory factory = null;
-        EntityManager entityManager = null;
-        try {
-            //Obtém o factory a partir da unidade de persistência.
-            factory = Persistence.createEntityManagerFactory("br.com.jn_selecao_war_1.0-SNAPSHOTPU");
-            //Cria um entity manager.
-            entityManager = factory.createEntityManager();
-            //Fecha o factory para liberar os recursos utilizado.
-        } finally {
-            factory.close();
-        }
-        return entityManager;
+    private static final Logger LOG = Logger.getLogger(DataListView.class.getName());
+
+    @PersistenceContext(unitName = "br.com.jn_selecao_war_1.0-SNAPSHOTPU")
+    private EntityManager em;
+
+    private List<Candidato> candidatos;
+
+    public void persistAction() {
+
+        Collection<Integer> store = new ArrayList<>();
+        
     }
 
-    public List<Candidato> selecionadosFase1() {
-        EntityManager entityManager = null;
-        List<Candidato> candidatos = null;
-        try {
-            candidatos = entityManager.createNamedQuery("Candidato.findAll")
-                    .getResultList();
-        } catch (Exception e) {
-            e.printStackTrace();
+    public List<Candidato> loadData() {
+        if (candidatos != null) {
+            return Collections.unmodifiableList(candidatos);
+        } else {
+            return new ArrayList<>();
         }
-        return candidatos;
     }
 
-    
-
+    @SuppressWarnings("unchecked")
+    public void findAllUnordered() {
+        candidatos = em.createNamedQuery("Candidato.selecionadosGeral")
+                .getResultList();
+    }
 }

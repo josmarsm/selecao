@@ -7,8 +7,11 @@
                 xmlns:p="http://primefaces.org/ui">
 
     <h:form id="CandidatosListForm">
+        <h:form>
+           
+        </h:form>
 
-        <p:dataList value="#{beancandidato.loadData()}" var="c" type="ordered" >
+        <p:dataList value="#{candidatoBean.candidatos}" var="c" type="ordered" >
             <f:facet name="header">
                 Selecionados para a segunda fase
             </f:facet>

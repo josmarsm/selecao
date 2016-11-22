@@ -28,7 +28,8 @@ WHERE
   `Candidatos`.`NotaEliminatoria` >= 5
 ORDER BY
   `Orientador`.`Orientador`,
-  `Candidatos`.`Nome`;]]>
+  `Candidatos`.`Dia`,
+  `Candidatos`.`Horario`;]]>
 	</queryString>
 	<field name="Nome" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
@@ -109,32 +110,21 @@ ORDER BY
 	<detail>
 		<band height="33" splitType="Stretch">
 			<textField isStretchWithOverflow="true">
-				<reportElement style="Detail" x="248" y="0" width="75" height="15" uuid="a15b17cf-9453-4bb2-a106-748eb22f77b3"/>
-				<textFieldExpression><![CDATA[$F{Dia}]]></textFieldExpression>
+				<reportElement style="Detail" x="214" y="0" width="101" height="15" uuid="a15b17cf-9453-4bb2-a106-748eb22f77b3"/>
+				<textFieldExpression><![CDATA[$F{Dia}+" - "+$F{Horario} ]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement style="Detail" x="334" y="0" width="111" height="15" uuid="45fb9b6a-23c2-4b24-96bf-74d8128d75b2"/>
-				<textFieldExpression><![CDATA[$F{Horario}]]></textFieldExpression>
-			</textField>
-			<textField isStretchWithOverflow="true">
-				<reportElement style="Detail" x="3" y="0" width="239" height="15" uuid="d17f0e19-8997-4671-a066-9fe824c91dd0"/>
+				<reportElement style="Detail" x="3" y="0" width="211" height="15" uuid="d17f0e19-8997-4671-a066-9fe824c91dd0"/>
 				<textFieldExpression><![CDATA[$F{Nome}]]></textFieldExpression>
 			</textField>
 			<textField isStretchWithOverflow="true">
-				<reportElement style="Detail" x="3" y="15" width="516" height="15" uuid="cd90ab9c-d5f8-4351-b568-631c63b46657"/>
+				<reportElement style="Detail" x="319" y="0" width="227" height="33" uuid="cd90ab9c-d5f8-4351-b568-631c63b46657"/>
 				<textFieldExpression><![CDATA[$F{Local}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
 	<columnFooter>
-		<band height="13" splitType="Stretch">
-			<line>
-				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="85d71d77-9946-4b64-8675-b76dd11ca39d"/>
-				<graphicElement>
-					<pen lineWidth="0.5" lineColor="#999999"/>
-				</graphicElement>
-			</line>
-		</band>
+		<band height="13" splitType="Stretch"/>
 	</columnFooter>
 	<pageFooter>
 		<band height="25" splitType="Stretch">
